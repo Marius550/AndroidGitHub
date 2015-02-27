@@ -11,7 +11,9 @@ import android.widget.EditText;
 
 public class MainActivity extends ActionBarActivity {
 
-    public final static String EXTRA_MESSAGE = "com.example.mariuspilgrim.firstapplication.MESSAGE";
+    public final static String EXTRA_MESSAGE_NAME = "com.example.mariuspilgrim.firstapplication.MESSAGE_NAME";
+    public final static String EXTRA_MESSAGE_EMAIL = "com.example.mariuspilgrim.firstapplication.MESSAGE_EMAIL";
+    public final static String EXTRA_MESSAGE_PHONE = "com.example.mariuspilgrim.firstapplication.MESSAGE_PHONE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +44,40 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /** Called when the user clicks the Send button */
+    /**
+     * Called when the user clicks the Send button
+     * @param view
+     */
     public void sendMessage(View view) {
         //Do something in response to button
         Intent intent = new Intent (this, DisplayMessageActivity.class);
-        EditText editText = (EditText) findViewById(R.id.edit_message);
-        String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
+
+        EditText editTextName = (EditText) findViewById(R.id.edit_name);
+        EditText editTextEmail = (EditText) findViewById(R.id.edit_email);
+        EditText editTextPhone = (EditText) findViewById(R.id.edit_phone);
+
+        String messageName = editTextName.getText().toString();
+        String messageEmail = editTextEmail.getText().toString();
+        String messagePhone = editTextPhone.getText().toString();
+
+        intent.putExtra(EXTRA_MESSAGE_NAME, messageName);
+        intent.putExtra(EXTRA_MESSAGE_EMAIL, messageEmail);
+        intent.putExtra(EXTRA_MESSAGE_PHONE, messagePhone);
         startActivity(intent);
     }
+
+    /**
+     * Set input elements to default values for Elena
+     * @param view
+     */
+    public void setDefaultInputValues(View view) {
+        EditText editTextName = (EditText) findViewById(R.id.edit_name);
+        EditText editTextEmail = (EditText) findViewById(R.id.edit_email);
+        EditText editTextPhone = (EditText) findViewById(R.id.edit_phone);
+
+        editTextName.setText("Elena");
+        editTextEmail.setText("elena.enbrecht@gmail.de");
+        editTextPhone.setText("0167 1712131243");
+    }
+
 }
