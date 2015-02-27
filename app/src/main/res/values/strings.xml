@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">FirstApplication</string>
 
-    <string name="hello_world">Hello Marius!</string>
+    <string name="hello_world">Hello Marius Pilgrim!</string>
     <string name="action_settings">Settings</string>
 </resources>
