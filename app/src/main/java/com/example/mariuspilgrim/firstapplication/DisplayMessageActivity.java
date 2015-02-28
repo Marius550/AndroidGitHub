@@ -19,6 +19,9 @@ public class DisplayMessageActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //Not necessary, also works without following line
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         try {
             setContentView(R.layout.activity_display_message);
 
@@ -35,7 +38,7 @@ public class DisplayMessageActivity extends ActionBarActivity {
             textViewEmail.append("Email: " + messageEmail + "\n");
             textViewPhone.append("Phone: " + messagePhone + "\n");
         } catch (Exception e) {
-            e.printStackTrace();
+            messageBox("onCreate", e.getMessage());
         }
     }
 

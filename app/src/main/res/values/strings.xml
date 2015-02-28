@@ -9,5 +9,7 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_display_message">Information for Louie</string>
+    <string name="action_search">Search</string>
+    <string name="action_browser">Browser</string>
     <string name="welcome_info">Tell Louie something about you...</string>
 </resources>
