@@ -2,9 +2,13 @@ package com.example.mariuspilgrim.firstapplication;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.net.Uri;
+import android.provider.Settings;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,11 +23,11 @@ public class DisplayMessageActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Not necessary, also works without following line
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         try {
             setContentView(R.layout.activity_display_message);
+
+            //getActionBar() causes error
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
             Intent intent = getIntent();
             String messageName = intent.getStringExtra(MainActivity.EXTRA_MESSAGE_NAME);
@@ -43,18 +47,47 @@ public class DisplayMessageActivity extends ActionBarActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_display_message, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.action_search:
+                //openSearch();
+                System.out.println("Need to define search()");
+                return true;
+            case R.id.action_settings:
+                openAndroidSettings();
+                return true;
+            case R.id.action_browser:
+                openAndroidBrowser();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
+    }
 
-        return super.onOptionsItemSelected(item);
+    /**
+     * Opens Android device settings
+     */
+    public void openAndroidSettings() {
+        startActivityForResult(new Intent(Settings.ACTION_SETTINGS), 0);
+    }
+
+    /**
+     * Opens Android device browser
+     */
+    public void openAndroidBrowser() {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
+        startActivity(browserIntent);
     }
 
     /**

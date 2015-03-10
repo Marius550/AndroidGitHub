@@ -12,4 +12,6 @@
     <string name="action_search">Search</string>
     <string name="action_browser">Browser</string>
     <string name="welcome_info">Tell Louie something about you...</string>
+    <string name="search_hint">Search hint</string>
+    <string name="edit_message_input_controls">Edit inputControls</string>
 </resources>
