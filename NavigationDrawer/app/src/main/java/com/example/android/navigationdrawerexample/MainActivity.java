@@ -99,7 +99,7 @@ public class MainActivity extends Activity {
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
 
-        // ActionBarDrawerToggle ties together the the proper interactions
+        // ActionBarDrawerToggle ties together the proper interactions
         // between the sliding drawer and the action bar app icon
         mDrawerToggle = new ActionBarDrawerToggle(
                 this,                  /* host Activity */
@@ -166,7 +166,7 @@ public class MainActivity extends Activity {
                 return true;
         case R.id.action_browser:
              openAndroidBrowser();
-                return true; 
+                return true;
         default:
             return super.onOptionsItemSelected(item);
         }
@@ -187,11 +187,27 @@ public class MainActivity extends Activity {
         startActivity(browserIntent);
     }
 
-    /* The click listner for ListView in the navigation drawer */
+    /* The click listener for ListView in the navigation drawer */
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            selectItem(position);
+            System.out.println("Onclick Menu Position: " + position);
+            System.out.println("Id: " + id);
+
+            try {
+                if (position < 8) {
+                    System.out.println("Planet item: " + position);
+                    selectItem(position);
+
+                    //Intentionally creates runtime error
+                    //throw new RuntimeException();
+                } else {
+                    System.out.println("Test item: " + position);
+                    selectItemTest(position);
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
     }
 
@@ -209,6 +225,26 @@ public class MainActivity extends Activity {
         mDrawerList.setItemChecked(position, true);
         setTitle(mPlanetTitles[position]);
         mDrawerLayout.closeDrawer(mDrawerList);
+    }
+
+    private void selectItemTest(int position) {
+        // update the main content by replacing fragments
+        try {
+            Fragment fragment_test = new TestFragment();
+            Bundle args_test = new Bundle();
+            args_test.putInt(TestFragment.ARG_TEST_NUMBER, position);
+            fragment_test.setArguments(args_test);
+
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.content_frame, fragment_test).commit();
+
+            // update selected item and title, then close the drawer
+            mDrawerList.setItemChecked(position, true);
+            setTitle(mPlanetTitles[position]);
+            mDrawerLayout.closeDrawer(mDrawerList);
+        } catch (Exception ex) {
+            System.out.println("Exception ex:" + ex);
+        }
     }
 
     @Override
@@ -257,6 +293,37 @@ public class MainActivity extends Activity {
                             "drawable", getActivity().getPackageName());
             ((ImageView) rootView.findViewById(R.id.image)).setImageResource(imageId);
             getActivity().setTitle(planet);
+
+            System.out.println("PlanetFragment: " + planet);
+
+            return rootView;
+        }
+    }
+
+    /**
+     * Fragment that appears in the "content_frame", shows a test fragment
+     */
+    public static class TestFragment extends Fragment {
+        public static final String ARG_TEST_NUMBER = "test_number";
+
+        public TestFragment() {
+            // Empty constructor required for fragment subclasses
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_test, container, false);
+            int i = getArguments().getInt(ARG_TEST_NUMBER);
+            String planet = getResources().getStringArray(R.array.planets_array)[i];
+
+            //int imageId = getResources().getIdentifier(planet.toLowerCase(Locale.getDefault()),
+            //        "drawable", getActivity().getPackageName());
+            //((ImageView) rootView.findViewById(R.id.image)).setImageResource(imageId);
+            getActivity().setTitle(planet);
+
+            System.out.println("TestFragment: " + planet);
+
             return rootView;
         }
     }
