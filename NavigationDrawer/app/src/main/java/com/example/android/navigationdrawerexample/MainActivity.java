@@ -24,7 +24,9 @@ import android.app.FragmentManager;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -159,10 +161,31 @@ public class MainActivity extends Activity {
                 Toast.makeText(this, R.string.app_not_available, Toast.LENGTH_LONG).show();
             }
             return true;
+        case R.id.action_settings:
+            openAndroidSettings();
+                return true;
+        case R.id.action_browser:
+             openAndroidBrowser();
+                return true; 
         default:
             return super.onOptionsItemSelected(item);
         }
-    }//test
+    }
+
+    /**
+     * Opens Android device settings
+     */
+    public void openAndroidSettings() {
+        startActivityForResult(new Intent(Settings.ACTION_SETTINGS), 0);
+    }
+
+    /**
+     * Opens Android device browser
+     */
+    public void openAndroidBrowser() {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
+        startActivity(browserIntent);
+    }
 
     /* The click listner for ListView in the navigation drawer */
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
