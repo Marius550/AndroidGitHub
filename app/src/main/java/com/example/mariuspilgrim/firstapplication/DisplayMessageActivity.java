@@ -23,11 +23,14 @@ public class DisplayMessageActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setIcon(R.drawable.pug);
+
+        //getActionBar().setDisplayHomeAsUpEnabled(true);
+        //getActionBar().setIcon(R.drawable.pug);
+
         try {
             setContentView(R.layout.activity_display_message);
-
-            //getActionBar() causes error
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
             Intent intent = getIntent();
             String messageName = intent.getStringExtra(MainActivity.EXTRA_MESSAGE_NAME);
