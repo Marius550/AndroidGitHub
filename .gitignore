@@ -27,3 +27,5 @@ proguard/
 *.log
 NavigationDrawer/.gradle/2.2.1/taskArtifacts/fileHashes.bin
 
+
+NavigationDrawer/.idea/workspace.xml
