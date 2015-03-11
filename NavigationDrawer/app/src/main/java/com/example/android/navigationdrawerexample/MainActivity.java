@@ -291,6 +291,9 @@ public class MainActivity extends Activity {
 
             int imageId = getResources().getIdentifier(planet.toLowerCase(Locale.getDefault()),
                             "drawable", getActivity().getPackageName());
+
+            System.out.println("imageId: " + imageId);
+
             ((ImageView) rootView.findViewById(R.id.image)).setImageResource(imageId);
             getActivity().setTitle(planet);
 
@@ -317,9 +320,12 @@ public class MainActivity extends Activity {
             int i = getArguments().getInt(ARG_TEST_NUMBER);
             String planet = getResources().getStringArray(R.array.planets_array)[i];
 
-            //int imageId = getResources().getIdentifier(planet.toLowerCase(Locale.getDefault()),
-            //        "drawable", getActivity().getPackageName());
-            //((ImageView) rootView.findViewById(R.id.image)).setImageResource(imageId);
+            int imageId = getResources().getIdentifier(planet.toLowerCase(Locale.getDefault()),
+                    "drawable", getActivity().getPackageName());
+
+            System.out.println("imageId: " + imageId);
+
+            ((ImageView) rootView.findViewById(R.id.image)).setImageResource(imageId);
             getActivity().setTitle(planet);
 
             System.out.println("TestFragment: " + planet);
