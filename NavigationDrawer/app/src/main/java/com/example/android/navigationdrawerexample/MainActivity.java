@@ -261,9 +261,7 @@ public class MainActivity extends Activity {
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
-        mDrawerList.setItemChecked(position, true);
-        setTitle(mMenuItemTitles[position]);
-        mDrawerLayout.closeDrawer(mDrawerList);
+        setmDrawer(position);
 
     }
 
@@ -381,6 +379,8 @@ public class MainActivity extends Activity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_welcome, container, false);
+
+            //Get menu id / Name to set finally set the title it is connected to
             int i = getArguments().getInt(ARG_WELCOME_NUMBER);
             String menuItem = getResources().getStringArray(R.array.menu_items_array)[i];
 
