@@ -20,7 +20,7 @@
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:singleLine="false"
-        android:text="@string/welcome_fragment"
+        android:text="@string/news_fragment"
         android:textSize="16sp"
         android:layout_alignParentTop="false"
 
