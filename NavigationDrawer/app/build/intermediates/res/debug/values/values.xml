@@ -2,16 +2,16 @@
 <resources>
     <!-- From: file:/Users/mariuspilgrim/Documents/AndroidGitHub/NavigationDrawer/app/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string-array name="planets_array">
-        <item>welcome</item>
-        <item>department</item>
-        <item>affairs</item>
-        <item>prospective</item>
-        <item>research</item>
-        <item>news</item>
-        <item>events</item>
-        <item>contact</item>
-        <item>testitem</item>
+    <string-array name="menu_items_array">
+        <item>Welcome</item>
+        <item>Department</item>
+        <item>Affairs</item>
+        <item>Prospective</item>
+        <item>Research</item>
+        <item>News</item>
+        <item>Events</item>
+        <item>Contact</item>
+        <item>Nextitem</item>
     </string-array>
     <string name="action_browser">Browser</string>
     <string name="action_settings">Settings</string>
@@ -21,6 +21,7 @@
     <string name="drawer_close">Close navigation drawer</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="fragment_test">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. </string>
+    <string name="welcome_fragment"><b>Welcome to the ERCIS App!</b>\n This app informs you about the <b>E</b>uropean <b>R</b>esearch <b>C</b>enter for <b>I</b>nformation <b>S</b>ystems (ERCIS), which is located in the German city Münster. The ERCIS is an international network of scientists, conducting cooperative research in the field of Information Systems. \n To navigate through the app, swipe in the main menu from the left or tap on the ERCIS home icon.</string>
     <!-- From: file:/Users/mariuspilgrim/Documents/AndroidGitHub/NavigationDrawer/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">

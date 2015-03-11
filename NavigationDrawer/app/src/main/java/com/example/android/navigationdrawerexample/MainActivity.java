@@ -76,7 +76,7 @@ public class MainActivity extends Activity {
 
     private CharSequence mDrawerTitle;
     private CharSequence mTitle;
-    private String[] mPlanetTitles;
+    private String[] mMenuItemTitles;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +84,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         mTitle = mDrawerTitle = getTitle();
-        mPlanetTitles = getResources().getStringArray(R.array.planets_array);
+        mMenuItemTitles = getResources().getStringArray(R.array.menu_items_array);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
@@ -92,7 +92,7 @@ public class MainActivity extends Activity {
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
         // set up the drawer's list view with items and click listener
         mDrawerList.setAdapter(new ArrayAdapter<String>(this,
-                R.layout.drawer_list_item, mPlanetTitles));
+                R.layout.drawer_list_item, mMenuItemTitles));
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
         // enable ActionBar app icon to behave as action to toggle nav drawer
@@ -121,7 +121,7 @@ public class MainActivity extends Activity {
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
         if (savedInstanceState == null) {
-            selectItem(0);
+            selectItem(3);//Sets start item
         }
     }
 
@@ -191,25 +191,52 @@ public class MainActivity extends Activity {
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            System.out.println("Onclick Menu Position: " + position);
-            System.out.println("Id: " + id);
+
+            switch(position) {
+                case 0:
+                    selectItemLikeWelcome(position);//Welcome
+                case 1:
+                    selectItemLikeWelcome(position);//Department
+                case 2:
+                    selectItem(position);//Affaris
+                case 3:
+                    selectItem(position);//Prospective
+                case 4:
+                    selectItem(position);//Research
+                case 5:
+                    selectItem(position);//News
+                case 6:
+                    selectItem(position);//Events
+                case 7:
+                    selectItem(position);//Contact
+                case 8:
+                    selectItem(position);//Nextitem
+                default:
+                    selectItem(position);
+            }
+        }
+
+    }
+        /*
+            //System.out.println("Onclick Menu Position: " + position);
+            //System.out.println("Id: " + id);
 
             try {
                 if (position < 8) {
-                    System.out.println("Planet item: " + position);
+                    //System.out.println("Planet item: " + position);
                     selectItem(position);
 
                     //Intentionally creates runtime error
                     //throw new RuntimeException();
                 } else {
-                    System.out.println("Test item: " + position);
+                    //System.out.println("Test item: " + position);
                     selectItemTest(position);
                 }
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-        }
-    }
+        */
+
 
     private void selectItem(int position) {
         // update the main content by replacing fragments
@@ -223,24 +250,24 @@ public class MainActivity extends Activity {
 
         // update selected item and title, then close the drawer
         mDrawerList.setItemChecked(position, true);
-        setTitle(mPlanetTitles[position]);
+        setTitle(mMenuItemTitles[position]);
         mDrawerLayout.closeDrawer(mDrawerList);
     }
 
-    private void selectItemTest(int position) {
+    private void selectItemLikeWelcome(int position) {
         // update the main content by replacing fragments
         try {
-            Fragment fragment_test = new TestFragment();
-            Bundle args_test = new Bundle();
-            args_test.putInt(TestFragment.ARG_TEST_NUMBER, position);
-            fragment_test.setArguments(args_test);
+            Fragment fragment = new WelcomeFragment();
+            Bundle args = new Bundle();
+            args.putInt(ImageTextFragment.ARG_MENU_NUMBER, position);
+            fragment.setArguments(args);
 
             FragmentManager fragmentManager = getFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.content_frame, fragment_test).commit();
+            fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
             // update selected item and title, then close the drawer
             mDrawerList.setItemChecked(position, true);
-            setTitle(mPlanetTitles[position]);
+            setTitle(mMenuItemTitles[position]);
             mDrawerLayout.closeDrawer(mDrawerList);
         } catch (Exception ex) {
             System.out.println("Exception ex:" + ex);
@@ -287,17 +314,19 @@ public class MainActivity extends Activity {
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_planet, container, false);
             int i = getArguments().getInt(ARG_PLANET_NUMBER);
-            String planet = getResources().getStringArray(R.array.planets_array)[i];
+            String menuItem = getResources().getStringArray(R.array.menu_items_array)[i];
 
-            int imageId = getResources().getIdentifier(planet.toLowerCase(Locale.getDefault()),
+            System.out.println("i: " + i + ", menuItem: " + menuItem);
+
+            int imageId = getResources().getIdentifier(menuItem.toLowerCase(Locale.getDefault()),
                             "drawable", getActivity().getPackageName());
 
             System.out.println("imageId: " + imageId);
 
-            ((ImageView) rootView.findViewById(R.id.image)).setImageResource(imageId);
-            getActivity().setTitle(planet);
+            ((ImageView) rootView.findViewById(R.id.image_planets_id)).setImageResource(imageId);
+            getActivity().setTitle(menuItem);
 
-            System.out.println("PlanetFragment: " + planet);
+            System.out.println("rootView: " + rootView.toString());
 
             return rootView;
         }
@@ -306,29 +335,58 @@ public class MainActivity extends Activity {
     /**
      * Fragment that appears in the "content_frame", shows a test fragment
      */
-    public static class TestFragment extends Fragment {
-        public static final String ARG_TEST_NUMBER = "test_number";
+    public static class ImageTextFragment extends Fragment {
+        public static final String ARG_MENU_NUMBER = "menu_number";
 
-        public TestFragment() {
+        public ImageTextFragment() {
             // Empty constructor required for fragment subclasses
         }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_test, container, false);
-            int i = getArguments().getInt(ARG_TEST_NUMBER);
-            String planet = getResources().getStringArray(R.array.planets_array)[i];
+            View rootView = inflater.inflate(R.layout.fragment_welcome, container, false);
+            int i = getArguments().getInt(ARG_MENU_NUMBER);
+            String menuItem = getResources().getStringArray(R.array.menu_items_array)[i];
 
-            int imageId = getResources().getIdentifier(planet.toLowerCase(Locale.getDefault()),
+            System.out.println("i: " + i + ", menuItem: " + menuItem);
+
+            int imageId = getResources().getIdentifier(menuItem.toLowerCase(Locale.getDefault()),
                     "drawable", getActivity().getPackageName());
 
             System.out.println("imageId: " + imageId);
 
-            ((ImageView) rootView.findViewById(R.id.image)).setImageResource(imageId);
-            getActivity().setTitle(planet);
+            //((ImageView) rootView.findViewById(R.id.image_text_id)).setImageResource(imageId);
+            getActivity().setTitle(menuItem);
 
-            System.out.println("TestFragment: " + planet);
+            System.out.println("rootView: " + rootView.toString());
+
+            return rootView;
+        }
+    }
+
+    /**
+     * Fragment that appears in the "content_frame", shows a welcome fragment
+     */
+    public static class WelcomeFragment extends Fragment {
+        public static final String ARG_WELCOME_NUMBER = "WELCOME_number";
+
+        public WelcomeFragment() {
+            // Empty constructor required for fragment subclasses
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_welcome, container, false);
+            int i = getArguments().getInt(ARG_WELCOME_NUMBER);
+            String menuItem = getResources().getStringArray(R.array.menu_items_array)[i];
+
+            System.out.println("i: " + i + ", menuItem: " + menuItem);
+
+            getActivity().setTitle(menuItem);
+
+            System.out.println("rootView: " + rootView.toString());
 
             return rootView;
         }
