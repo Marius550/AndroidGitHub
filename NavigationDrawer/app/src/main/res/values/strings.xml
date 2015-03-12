@@ -19,7 +19,8 @@
     <string name="edit_last_name">Last name</string>
     <string name="edit_email">Email address</string>
     <string name="button_setDefaultText">Set default to Max Mustermann</string>
-    <string name="ContactResultFragmentActivity">ContactResultFragmentActivity</string>
+    <string name="ContactFragmentActivity">Enter your message</string>
+    <string name="ContactResultFragmentActivity">Your message</string>
 
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
