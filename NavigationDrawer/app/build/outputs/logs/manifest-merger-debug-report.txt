@@ -34,18 +34,32 @@ MERGED from com.android.support:support-v4:21.0.3:16:5
 	android:theme
 		ADDED from AndroidManifest.xml:27:9
 activity#com.example.android.navigationdrawerexample.MainActivity
-ADDED from AndroidManifest.xml:29:9
+ADDED from AndroidManifest.xml:30:9
 	android:label
+		ADDED from AndroidManifest.xml:32:13
+	android:name
 		ADDED from AndroidManifest.xml:31:13
-	android:name
-		ADDED from AndroidManifest.xml:30:13
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from AndroidManifest.xml:32:13
+ADDED from AndroidManifest.xml:33:13
 action#android.intent.action.MAIN
-ADDED from AndroidManifest.xml:33:17
-	android:name
-		ADDED from AndroidManifest.xml:33:25
-category#android.intent.category.LAUNCHER
 ADDED from AndroidManifest.xml:34:17
 	android:name
-		ADDED from AndroidManifest.xml:34:27
+		ADDED from AndroidManifest.xml:34:25
+category#android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:35:17
+	android:name
+		ADDED from AndroidManifest.xml:35:27
+activity#com.example.android.navigationdrawerexample.ContactResultFragmentActivity
+ADDED from AndroidManifest.xml:39:9
+	android:label
+		ADDED from AndroidManifest.xml:41:13
+	android:parentActivityName
+		ADDED from AndroidManifest.xml:42:13
+	android:name
+		ADDED from AndroidManifest.xml:40:13
+meta-data#android.support.PARENT_ACTIVITY
+ADDED from AndroidManifest.xml:44:13
+	android:value
+		ADDED from AndroidManifest.xml:46:17
+	android:name
+		ADDED from AndroidManifest.xml:45:17

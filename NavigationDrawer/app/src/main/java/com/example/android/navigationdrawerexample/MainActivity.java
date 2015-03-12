@@ -39,6 +39,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -223,7 +225,7 @@ public class MainActivity extends Activity {
                     System.out.println("DrawerItemClickListener Events pos: " + position);
                     break;
                 case 7:
-                    selectItemWelcome(position);//Contact
+                    selectItemContact(position);//Contact
                     System.out.println("DrawerItemClickListener Contact pos: " + position);
                     break;
                 case 8:
@@ -335,6 +337,20 @@ public class MainActivity extends Activity {
 
     }
 
+    private void selectItemContact(int position) {
+        // update the main content by replacing fragments
+        Fragment fragment = new ContactFragment();
+        Bundle args = new Bundle();
+        args.putInt(ContactFragment.ARG_CONTACT_NUMBER, position);
+        fragment.setArguments(args);
+
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+
+        setmDrawer(position);
+
+    }
+
     public void setmDrawer(int position) {
         mDrawerList.setItemChecked(position, true);
         setTitle(mMenuItemTitles[position]);
@@ -391,6 +407,7 @@ public class MainActivity extends Activity {
 
             //((ImageView) rootView.findViewById(R.id.fragment_welcome)).setImageResource(drawable);
             getActivity().setTitle(menuItem);
+
 
             return rootView;
         }
@@ -529,6 +546,67 @@ public class MainActivity extends Activity {
         }
     }
 
+    public static class ContactFragment extends Fragment {
+        public static final String ARG_CONTACT_NUMBER = "CONTACT_number";
+
+        public ContactFragment() {
+            // Empty constructor required for fragment subclasses
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_contact, container, false);
+            int i = getArguments().getInt(ARG_CONTACT_NUMBER);
+            String menuItem = getResources().getStringArray(R.array.menu_items_array)[i];
+            getActivity().setTitle(menuItem);
+            System.out.println("Fragment: " + menuItem + ", i: " + i);
+
+            //Button btn_setDefaultInputValues = (Button)getActivity().findViewById(R.id.btn_setDefaultInputValues);
+            //btn_setDefaultInputValues.setOnClickListener(OnClickListener());
+
+            return rootView;
+        }
+    }
+
+    public final static String EXTRA_MESSAGE_NAME = "com.example.android.navigationdrawerexample.MESSAGE_NAME";
+    public final static String EXTRA_MESSAGE_EMAIL = "com.example.android.navigationdrawerexample.MESSAGE_EMAIL";
+
+    /**
+     * Called when the user clicks the Send button
+     * @param view
+     */
+    public void sendMessage(View view) {
+        //Do something in response to button
+        try {
+            Intent intent = new Intent(this, ContactResultFragmentActivity.class);
+
+            EditText editTextName = (EditText) findViewById(R.id.edit_name);
+            EditText editTextEmail = (EditText) findViewById(R.id.edit_email);
+
+            String messageName = editTextName.getText().toString();
+            String messageEmail = editTextEmail.getText().toString();
+
+            intent.putExtra(EXTRA_MESSAGE_NAME, messageName);
+            intent.putExtra(EXTRA_MESSAGE_EMAIL, messageEmail);
+            startActivity(intent);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * Set input elements to default values for Max Mustermann
+     * @param view
+     */
+    public void setDefaultInputValues(View view) {
+
+        EditText editTextName = (EditText) findViewById(R.id.edit_name);
+        EditText editTextEmail = (EditText) findViewById(R.id.edit_email);
+
+        editTextName.setText("Max");
+        editTextEmail.setText("max.mustermann@gmail.de");
+    }
+
 }
 
 /*
@@ -587,3 +665,23 @@ public class MainActivity extends Activity {
         }
     }
     */
+        /*
+        @Override
+        public void onAttach(Activity activity) {
+            super.onAttach();
+            try {
+
+                final Button btn_setDefaultInputValues = (Button)activity.findViewById(R.id.btn_setDefaultInputValues);
+                btn_setDefaultInputValues.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        System.out.println("onAttach");
+                    }
+
+                });
+
+            } catch (ClassCastException e) {
+                e.printStackTrace();
+            }
+        }
+        */

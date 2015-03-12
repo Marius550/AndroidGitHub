@@ -18,15 +18,23 @@
     <string name="app_name">ERCIS</string>
     <string-array name="menu_items_array">
         <item>Welcome</item>
-        <item>Department</item>
-        <item>Affairs</item>
-        <item>Prospective</item>
+        <item>The Department</item>
+        <item>Student Affairs</item>
+        <item>Prospective Students</item>
         <item>Research</item>
         <item>News</item>
         <item>Events</item>
         <item>Contact</item>
         <item>Nextitem</item>
     </string-array>
+
+    <string name="button_send">Send</string>
+    <string name="welcome_info">Tell Louie something about you...</string>
+    <string name="edit_name">Enter your name</string>
+    <string name="edit_email">Email address</string>
+    <string name="button_setDefaultText">Set default to Elena</string>
+    <string name="ContactResultFragmentActivity">ContactResultFragmentActivity</string>
+
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
     <string name="action_websearch">Web search</string>

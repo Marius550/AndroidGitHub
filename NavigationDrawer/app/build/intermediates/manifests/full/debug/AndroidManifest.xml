@@ -27,6 +27,8 @@
         android:icon="@drawable/ercis"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
+        <!-- The main / home activity (it has no parent activity) -->
         <activity
             android:name="com.example.android.navigationdrawerexample.MainActivity"
             android:label="@string/app_name" >
@@ -35,6 +37,17 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <!-- A child of the main activity -->
+        <activity
+            android:name="com.example.android.navigationdrawerexample.ContactResultFragmentActivity"
+            android:label="@string/ContactResultFragmentActivity"
+            android:parentActivityName="com.example.android.navigationdrawerexample.MainActivity" >
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.android.navigationdrawerexample.MainActivity" />
         </activity>
     </application>
 
