@@ -19,8 +19,8 @@ import android.widget.Toast;
  */
 public class ContactFragmentActivity extends Activity {
 
-    public final static String EXTRA_MESSAGE_NAME = "com.example.android.navigationdrawerexample.MESSAGE_NAME";
-    public final static String EXTRA_MESSAGE_EMAIL = "com.example.android.navigationdrawerexample.MESSAGE_EMAIL";
+    //public final static String EXTRA_MESSAGE_NAME = "com.example.android.navigationdrawerexample.MESSAGE_NAME";
+    //public final static String EXTRA_MESSAGE_EMAIL = "com.example.android.navigationdrawerexample.MESSAGE_EMAIL";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +107,7 @@ public class ContactFragmentActivity extends Activity {
      * Called when the user clicks the Send button
      * @param view
      */
+    /*
     public void sendMessage(View view) {
         //Do something in response to button
         Intent intent = new Intent (this, ContactResultFragmentActivity.class);
@@ -121,12 +122,14 @@ public class ContactFragmentActivity extends Activity {
         intent.putExtra(EXTRA_MESSAGE_EMAIL, messageEmail);
         startActivity(intent);
     }
+    */
 
     /**
      * Set input elements to default values for Elena
      * @param view
      */
 
+    /*
     public void setDefaultInputValues(View view) {
         System.out.println("setDefaultInputValues view: " + view.toString());
 
@@ -136,6 +139,7 @@ public class ContactFragmentActivity extends Activity {
         editTextName.setText("Elena");
         editTextEmail.setText("elena.enbrecht@gmail.de");
     }
+    */
 
 
 }

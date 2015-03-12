@@ -16,15 +16,12 @@
 
 package com.example.android.navigationdrawerexample;
 
-import java.util.Locale;
-
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -39,40 +36,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-/**
- * This example illustrates a common usage of the DrawerLayout widget
- * in the Android support library.
- * <p/>
- * <p>When a navigation (left) drawer is present, the host activity should detect presses of
- * the action bar's Up affordance as a signal to open and close the navigation drawer. The
- * ActionBarDrawerToggle facilitates this behavior.
- * Items within the drawer should fall into one of two categories:</p>
- * <p/>
- * <ul>
- * <li><strong>View switches</strong>. A view switch follows the same basic policies as
- * list or tab navigation in that a view switch does not create navigation history.
- * This pattern should only be used at the root activity of a task, leaving some form
- * of Up navigation active for activities further down the navigation hierarchy.</li>
- * <li><strong>Selective Up</strong>. The drawer allows the user to choose an alternate
- * parent for Up navigation. This allows a user to jump across an app's navigation
- * hierarchy at will. The application should treat this as it treats Up navigation from
- * a different task, replacing the current task stack using TaskStackBuilder or similar.
- * This is the only form of navigation drawer that should be used outside of the root
- * activity of a task.</li>
- * </ul>
- * <p/>
- * <p>Right side drawers should be used for actions, not navigation. This follows the pattern
- * established by the Action Bar that navigation should be to the left and actions to the right.
- * An action should be an operation performed on the current contents of the window,
- * for example enabling or disabling a data overlay on top of the current content.</p>
- */
 public class MainActivity extends Activity {
+
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -80,6 +49,10 @@ public class MainActivity extends Activity {
     private CharSequence mDrawerTitle;
     private CharSequence mTitle;
     private String[] mMenuItemTitles;
+
+    public final static String EXTRA_MESSAGE_FIRST_NAME = "com.example.android.navigationdrawerexample.MESSAGE_FIRST_NAME";
+    public final static String EXTRA_MESSAGE_LAST_NAME = "com.example.android.navigationdrawerexample.MESSAGE_LAST_NAME";
+    public final static String EXTRA_MESSAGE_EMAIL = "com.example.android.navigationdrawerexample.MESSAGE_EMAIL";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -198,39 +171,30 @@ public class MainActivity extends Activity {
             switch(position) {
                 case 0:
                     selectItemWelcome(position);//Welcome
-                    System.out.println("DrawerItemClickListener Welcome pos: " + position);
                     break;
                 case 1:
                     selectItemDepartment(position);//Department
-                    System.out.println("DrawerItemClickListener Department pos: " + position);
                     break;
                 case 2:
                     selectItemAffairs(position);//Affairs
-                    System.out.println("DrawerItemClickListener Affairs pos: " + position);
                     break;
                 case 3:
                     selectItemProspective(position);//Prospective
-                    System.out.println("DrawerItemClickListener Prospective pos: " + position);
                     break;
                 case 4:
                     selectItemResearch(position);//Research
-                    System.out.println("DrawerItemClickListener Research pos: " + position);
                     break;
                 case 5:
                     selectItemNews(position);//News
-                    System.out.println("DrawerItemClickListener News pos: " + position);
                     break;
                 case 6:
                     selectItemEvents(position);//Events
-                    System.out.println("DrawerItemClickListener Events pos: " + position);
                     break;
                 case 7:
                     selectItemContact(position);//Contact
-                    System.out.println("DrawerItemClickListener Contact pos: " + position);
                     break;
                 case 8:
                     selectItemWelcome(position);//Nextitem
-                    System.out.println("DrawerItemClickListener Nextitem pos: " + position);
                     break;
                 default:
                     selectItemWelcome(position);
@@ -249,8 +213,7 @@ public class MainActivity extends Activity {
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
-        setmDrawer(position);
-
+        setMenuDrawer(position);
     }
 
     private void selectItemDepartment(int position) {
@@ -263,8 +226,7 @@ public class MainActivity extends Activity {
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
-        setmDrawer(position);
-
+        setMenuDrawer(position);
     }
 
     private void selectItemAffairs(int position) {
@@ -277,8 +239,7 @@ public class MainActivity extends Activity {
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
-        setmDrawer(position);
-
+        setMenuDrawer(position);
     }
 
     private void selectItemProspective(int position) {
@@ -291,8 +252,7 @@ public class MainActivity extends Activity {
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
-        setmDrawer(position);
-
+        setMenuDrawer(position);
     }
 
     private void selectItemResearch(int position) {
@@ -305,8 +265,7 @@ public class MainActivity extends Activity {
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
-        setmDrawer(position);
-
+        setMenuDrawer(position);
     }
 
     private void selectItemNews(int position) {
@@ -319,8 +278,7 @@ public class MainActivity extends Activity {
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
-        setmDrawer(position);
-
+        setMenuDrawer(position);
     }
 
     private void selectItemEvents(int position) {
@@ -333,8 +291,7 @@ public class MainActivity extends Activity {
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
-        setmDrawer(position);
-
+        setMenuDrawer(position);
     }
 
     private void selectItemContact(int position) {
@@ -347,11 +304,13 @@ public class MainActivity extends Activity {
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
-        setmDrawer(position);
-
+        setMenuDrawer(position);
     }
 
-    public void setmDrawer(int position) {
+    /**
+     * Closes the navigation list after having selected the menu item
+     */
+    public void setMenuDrawer(int position) {
         mDrawerList.setItemChecked(position, true);
         setTitle(mMenuItemTitles[position]);
         mDrawerLayout.closeDrawer(mDrawerList);
@@ -367,7 +326,6 @@ public class MainActivity extends Activity {
      * When using the ActionBarDrawerToggle, you must call it during
      * onPostCreate() and onConfigurationChanged()...
      */
-
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
@@ -396,23 +354,18 @@ public class MainActivity extends Activity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_welcome, container, false);
 
-            //Get menu id / Name to set finally set the title it is connected to
+            //Get menu id / Name to finally set the title it is connected to
             int i = getArguments().getInt(ARG_WELCOME_NUMBER);
             String menuItem = getResources().getStringArray(R.array.menu_items_array)[i];
-
-            System.out.println("Fragment: " + menuItem + ", i: " + i);
-
-            //int drawable = getResources().getIdentifier(menuItem,"drawable",null);
-            //System.out.println("drawable int: " + drawable);
-
-            //((ImageView) rootView.findViewById(R.id.fragment_welcome)).setImageResource(drawable);
             getActivity().setTitle(menuItem);
-
 
             return rootView;
         }
     }
 
+    /**
+     * Fragment that appears in the "content_frame", shows a department fragment
+     */
     public static class DepartmentFragment extends Fragment {
         public static final String ARG_DEPARTMENT_NUMBER = "DEPARTMENT_number";
 
@@ -421,20 +374,19 @@ public class MainActivity extends Activity {
         }
 
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_department, container, false);
             int i = getArguments().getInt(ARG_DEPARTMENT_NUMBER);
             String menuItem = getResources().getStringArray(R.array.menu_items_array)[i];
-
-            System.out.println("Fragment: " + menuItem + ", i: " + i);
-
             getActivity().setTitle(menuItem);
 
             return rootView;
         }
     }
 
+    /**
+     * Fragment that appears in the "content_frame", shows an affairs fragment
+     */
     public static class AffairsFragment extends Fragment {
         public static final String ARG_AFFAIRS_NUMBER = "AFFAIRS_number";
 
@@ -443,20 +395,19 @@ public class MainActivity extends Activity {
         }
 
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_affairs, container, false);
             int i = getArguments().getInt(ARG_AFFAIRS_NUMBER);
             String menuItem = getResources().getStringArray(R.array.menu_items_array)[i];
-
-            System.out.println("Fragment: " + menuItem + ", i: " + i);
-
             getActivity().setTitle(menuItem);
 
             return rootView;
         }
     }
 
+    /**
+     * Fragment that appears in the "content_frame", shows a prospective fragment
+     */
     public static class ProspectiveFragment extends Fragment {
         public static final String ARG_PROSPECTIVE_NUMBER = "PROSPECTIVE_number";
 
@@ -465,20 +416,19 @@ public class MainActivity extends Activity {
         }
 
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_prospective, container, false);
             int i = getArguments().getInt(ARG_PROSPECTIVE_NUMBER);
             String menuItem = getResources().getStringArray(R.array.menu_items_array)[i];
-
-            System.out.println("Fragment: " + menuItem + ", i: " + i);
-
             getActivity().setTitle(menuItem);
 
             return rootView;
         }
     }
 
+    /**
+     * Fragment that appears in the "content_frame", shows a research fragment fragment
+     */
     public static class ResearchFragment extends Fragment {
         public static final String ARG_RESEARCH_NUMBER = "RESEARCH_number";
 
@@ -487,20 +437,19 @@ public class MainActivity extends Activity {
         }
 
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_research, container, false);
             int i = getArguments().getInt(ARG_RESEARCH_NUMBER);
             String menuItem = getResources().getStringArray(R.array.menu_items_array)[i];
-
-            System.out.println("Fragment: " + menuItem + ", i: " + i);
-
             getActivity().setTitle(menuItem);
 
             return rootView;
         }
     }
 
+    /**
+     * Fragment that appears in the "content_frame", shows a news fragment
+     */
     public static class NewsFragment extends Fragment {
         public static final String ARG_NEWS_NUMBER = "NEWS_number";
 
@@ -509,21 +458,19 @@ public class MainActivity extends Activity {
         }
 
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_news, container, false);
             int i = getArguments().getInt(ARG_NEWS_NUMBER);
             String menuItem = getResources().getStringArray(R.array.menu_items_array)[i];
-
-            System.out.println("Fragment: " + menuItem + ", i: " + i);
-
             getActivity().setTitle(menuItem);
 
             return rootView;
         }
     }
 
-
+    /**
+     * Fragment that appears in the "content_frame", shows an events fragment
+     */
     public static class EventsFragment extends Fragment {
         public static final String ARG_EVENTS_NUMBER = "EVENTS_number";
 
@@ -532,20 +479,19 @@ public class MainActivity extends Activity {
         }
 
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_events, container, false);
             int i = getArguments().getInt(ARG_EVENTS_NUMBER);
             String menuItem = getResources().getStringArray(R.array.menu_items_array)[i];
-
-            System.out.println("Fragment: " + menuItem + ", i: " + i);
-
             getActivity().setTitle(menuItem);
 
             return rootView;
         }
     }
 
+    /**
+     * Fragment that appears in the "content_frame", shows a contact fragment
+     */
     public static class ContactFragment extends Fragment {
         public static final String ARG_CONTACT_NUMBER = "CONTACT_number";
 
@@ -559,20 +505,13 @@ public class MainActivity extends Activity {
             int i = getArguments().getInt(ARG_CONTACT_NUMBER);
             String menuItem = getResources().getStringArray(R.array.menu_items_array)[i];
             getActivity().setTitle(menuItem);
-            System.out.println("Fragment: " + menuItem + ", i: " + i);
-
-            //Button btn_setDefaultInputValues = (Button)getActivity().findViewById(R.id.btn_setDefaultInputValues);
-            //btn_setDefaultInputValues.setOnClickListener(OnClickListener());
 
             return rootView;
         }
     }
 
-    public final static String EXTRA_MESSAGE_NAME = "com.example.android.navigationdrawerexample.MESSAGE_NAME";
-    public final static String EXTRA_MESSAGE_EMAIL = "com.example.android.navigationdrawerexample.MESSAGE_EMAIL";
-
     /**
-     * Called when the user clicks the Send button
+     * Called when the user clicks the onClick="sendMessage" button
      * @param view
      */
     public void sendMessage(View view) {
@@ -580,14 +519,18 @@ public class MainActivity extends Activity {
         try {
             Intent intent = new Intent(this, ContactResultFragmentActivity.class);
 
-            EditText editTextName = (EditText) findViewById(R.id.edit_name);
+            EditText editTextFirstName = (EditText) findViewById(R.id.edit_first_name);
+            EditText editTextLastName = (EditText) findViewById(R.id.edit_last_name);
             EditText editTextEmail = (EditText) findViewById(R.id.edit_email);
 
-            String messageName = editTextName.getText().toString();
+            String messageFirstName = editTextFirstName.getText().toString();
+            String messageLastName = editTextLastName.getText().toString();
             String messageEmail = editTextEmail.getText().toString();
 
-            intent.putExtra(EXTRA_MESSAGE_NAME, messageName);
+            intent.putExtra(EXTRA_MESSAGE_FIRST_NAME, messageFirstName);
+            intent.putExtra(EXTRA_MESSAGE_LAST_NAME, messageLastName);
             intent.putExtra(EXTRA_MESSAGE_EMAIL, messageEmail);
+
             startActivity(intent);
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -595,93 +538,18 @@ public class MainActivity extends Activity {
     }
 
     /**
-     * Set input elements to default values for Max Mustermann
+     * Called when the user clicks the onClick="setDefaultInputValues" button
      * @param view
      */
     public void setDefaultInputValues(View view) {
 
-        EditText editTextName = (EditText) findViewById(R.id.edit_name);
+        EditText editTextFirstName = (EditText) findViewById(R.id.edit_first_name);
+        EditText editTextLastName = (EditText) findViewById(R.id.edit_last_name);
         EditText editTextEmail = (EditText) findViewById(R.id.edit_email);
 
-        editTextName.setText("Max");
+        editTextFirstName.setText("Max");
+        editTextLastName.setText("Mustermann");
         editTextEmail.setText("max.mustermann@gmail.de");
     }
 
 }
-
-/*
-    private void selectItemLikeWelcome(int position) {
-        // update the main content by replacing fragments
-        try {
-            Fragment fragment = new WelcomeFragment();
-            Bundle args = new Bundle();
-            args.putInt(ImageTextFragment.ARG_MENU_NUMBER, position);
-            fragment.setArguments(args);
-
-            FragmentManager fragmentManager = getFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
-
-            // update selected item and title, then close the drawer
-            mDrawerList.setItemChecked(position, true);
-            setTitle(mMenuItemTitles[position]);
-            mDrawerLayout.closeDrawer(mDrawerList);
-        } catch (Exception ex) {
-            System.out.println("Exception ex:" + ex);
-        }
-    }
-    */
-
-/**
- * Fragment that appears in the "content_frame", shows a planet
- */
-    /*
-    public static class PlanetFragment extends Fragment {
-        public static final String ARG_PLANET_NUMBER = "planet_number";
-
-        public PlanetFragment() {
-            // Empty constructor required for fragment subclasses
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_planet, container, false);
-            int i = getArguments().getInt(ARG_PLANET_NUMBER);
-            String menuItem = getResources().getStringArray(R.array.menu_items_array)[i];
-
-            System.out.println("i: " + i + ", menuItem: " + menuItem);
-
-            int imageId = getResources().getIdentifier(menuItem.toLowerCase(Locale.getDefault()),
-                            "drawable", getActivity().getPackageName());
-
-            System.out.println("imageId: " + imageId);
-
-            ((ImageView) rootView.findViewById(R.id.image_planets_id)).setImageResource(imageId);
-            getActivity().setTitle(menuItem);
-
-            System.out.println("rootView: " + rootView.toString());
-
-            return rootView;
-        }
-    }
-    */
-        /*
-        @Override
-        public void onAttach(Activity activity) {
-            super.onAttach();
-            try {
-
-                final Button btn_setDefaultInputValues = (Button)activity.findViewById(R.id.btn_setDefaultInputValues);
-                btn_setDefaultInputValues.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        System.out.println("onAttach");
-                    }
-
-                });
-
-            } catch (ClassCastException e) {
-                e.printStackTrace();
-            }
-        }
-        */

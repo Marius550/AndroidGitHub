@@ -8,28 +8,38 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/welcome_info"
-        android:textSize="25dp"
+        android:textSize="16sp"
         android:layout_marginBottom="20dp"/>
     <EditText
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:id="@+id/edit_name"
-        android:hint="@string/edit_name" />
+        android:id="@+id/edit_first_name"
+        android:hint="@string/edit_first_name"
+        android:textSize="16sp" />
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_last_name"
+        android:hint="@string/edit_last_name"
+        android:textSize="16sp" />
     <EditText
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:id="@+id/edit_email"
-        android:hint="@string/edit_email" />
+        android:hint="@string/edit_email"
+        android:textSize="16sp" />
     <Button
         android:id="@+id/btn_setDefaultInputValues"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button_setDefaultText"
-        android:onClick="setDefaultInputValues"/>
+        android:onClick="setDefaultInputValues"
+        android:textSize="16sp" />
     <Button
         android:id="@+id/btn_sendMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button_send"
-        android:onClick="sendMessage"/>
+        android:onClick="sendMessage"
+        android:textSize="16sp" />
 </LinearLayout>

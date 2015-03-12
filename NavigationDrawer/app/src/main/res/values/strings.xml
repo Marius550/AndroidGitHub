@@ -1,18 +1,3 @@
-<!--
-  Copyright 2013 The Android Open Source Project
-
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-      http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
-  -->
 
 <resources>
     <string name="app_name">ERCIS</string>
@@ -29,10 +14,11 @@
     </string-array>
 
     <string name="button_send">Send</string>
-    <string name="welcome_info">Tell Louie something about you...</string>
-    <string name="edit_name">Enter your name</string>
+    <string name="welcome_info">To contact ERCIS, please use the following form:</string>
+    <string name="edit_first_name">First name</string>
+    <string name="edit_last_name">Last name</string>
     <string name="edit_email">Email address</string>
-    <string name="button_setDefaultText">Set default to Elena</string>
+    <string name="button_setDefaultText">Set default to Max Mustermann</string>
     <string name="ContactResultFragmentActivity">ContactResultFragmentActivity</string>
 
     <string name="drawer_open">Open navigation drawer</string>
