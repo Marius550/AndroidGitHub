@@ -296,9 +296,9 @@ public class MainActivity extends Activity {
 
     private void selectItemContact(int position) {
         // update the main content by replacing fragments
-        Fragment fragment = new ContactFragment();
+        Fragment fragment = new ContactFragmentActivity();  //Does not use bottom fragment class but own ContactFragmentActivity
         Bundle args = new Bundle();
-        args.putInt(ContactFragment.ARG_CONTACT_NUMBER, position);
+        args.putInt(ContactFragmentActivity.ARG_CONTACT_NUMBER, position);
         fragment.setArguments(args);
 
         FragmentManager fragmentManager = getFragmentManager();
@@ -542,6 +542,8 @@ public class MainActivity extends Activity {
      * @param view
      */
     public void setDefaultInputValues(View view) {
+
+        System.out.println("ViewMain NotNull: " + view.findViewById(R.id.edit_first_name));
 
         EditText editTextFirstName = (EditText) findViewById(R.id.edit_first_name);
         EditText editTextLastName = (EditText) findViewById(R.id.edit_last_name);
