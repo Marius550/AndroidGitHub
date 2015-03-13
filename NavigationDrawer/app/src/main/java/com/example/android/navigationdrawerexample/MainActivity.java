@@ -296,9 +296,9 @@ public class MainActivity extends Activity {
 
     private void selectItemContact(int position) {
         // update the main content by replacing fragments
-        Fragment fragment = new ContactFragmentActivity();  //Does not use bottom fragment class but own ContactFragmentActivity
+        Fragment fragment = new ContactFragmentActivity(); //Does not use bottom fragment class but own ContactFragmentActivity
         Bundle args = new Bundle();
-        args.putInt(ContactFragmentActivity.ARG_CONTACT_NUMBER, position);
+        args.putInt(ContactFragmentActivity.ARG_CONTACT_NUMBER, position); //Also adjust to ContactFragmentActivity
         fragment.setArguments(args);
 
         FragmentManager fragmentManager = getFragmentManager();
@@ -487,71 +487,6 @@ public class MainActivity extends Activity {
 
             return rootView;
         }
-    }
-
-    /**
-     * Fragment that appears in the "content_frame", shows a contact fragment
-     */
-    public static class ContactFragment extends Fragment {
-        public static final String ARG_CONTACT_NUMBER = "CONTACT_number";
-
-        public ContactFragment() {
-            // Empty constructor required for fragment subclasses
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_contact, container, false);
-            int i = getArguments().getInt(ARG_CONTACT_NUMBER);
-            String menuItem = getResources().getStringArray(R.array.menu_items_array)[i];
-            getActivity().setTitle(menuItem);
-
-            return rootView;
-        }
-    }
-
-    /**
-     * Called when the user clicks the onClick="sendMessage" button
-     * @param view
-     */
-    public void sendMessage(View view) {
-        //Do something in response to button
-        try {
-            Intent intent = new Intent(this, ContactResultFragmentActivity.class);
-
-            EditText editTextFirstName = (EditText) findViewById(R.id.edit_first_name);
-            EditText editTextLastName = (EditText) findViewById(R.id.edit_last_name);
-            EditText editTextEmail = (EditText) findViewById(R.id.edit_email);
-
-            String messageFirstName = editTextFirstName.getText().toString();
-            String messageLastName = editTextLastName.getText().toString();
-            String messageEmail = editTextEmail.getText().toString();
-
-            intent.putExtra(EXTRA_MESSAGE_FIRST_NAME, messageFirstName);
-            intent.putExtra(EXTRA_MESSAGE_LAST_NAME, messageLastName);
-            intent.putExtra(EXTRA_MESSAGE_EMAIL, messageEmail);
-
-            startActivity(intent);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    /**
-     * Called when the user clicks the onClick="setDefaultInputValues" button
-     * @param view
-     */
-    public void setDefaultInputValues(View view) {
-
-        System.out.println("ViewMain NotNull: " + view.findViewById(R.id.edit_first_name));
-
-        EditText editTextFirstName = (EditText) findViewById(R.id.edit_first_name);
-        EditText editTextLastName = (EditText) findViewById(R.id.edit_last_name);
-        EditText editTextEmail = (EditText) findViewById(R.id.edit_email);
-
-        editTextFirstName.setText("Max");
-        editTextLastName.setText("Mustermann");
-        editTextEmail.setText("max.mustermann@gmail.de");
     }
 
 }

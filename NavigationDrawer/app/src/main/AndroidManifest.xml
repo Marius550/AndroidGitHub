@@ -36,15 +36,7 @@
             </intent-filter>
         </activity>
         <!-- A child of the main activity -->
-        <activity
-            android:name=".ContactFragmentActivity"
-            android:label="@string/ContactFragmentActivity"
-            android:parentActivityName=".MainActivity" >
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.android.navigationdrawerexample.MainActivity" />
-        </activity>
+
 
         <activity
             android:name=".ContactResultFragmentActivity"

@@ -49,25 +49,17 @@ category#android.intent.category.LAUNCHER
 ADDED from AndroidManifest.xml:35:17
 	android:name
 		ADDED from AndroidManifest.xml:35:27
-activity#com.example.android.navigationdrawerexample.ContactFragmentActivity
-ADDED from AndroidManifest.xml:39:9
-	android:label
-		ADDED from AndroidManifest.xml:41:13
-	android:parentActivityName
-		ADDED from AndroidManifest.xml:42:13
-	android:name
-		ADDED from AndroidManifest.xml:40:13
-meta-data#android.support.PARENT_ACTIVITY
-ADDED from AndroidManifest.xml:44:13
-	android:value
-		ADDED from AndroidManifest.xml:46:17
-	android:name
-		ADDED from AndroidManifest.xml:45:17
 activity#com.example.android.navigationdrawerexample.ContactResultFragmentActivity
-ADDED from AndroidManifest.xml:49:9
+ADDED from AndroidManifest.xml:41:9
 	android:label
-		ADDED from AndroidManifest.xml:51:13
+		ADDED from AndroidManifest.xml:43:13
 	android:parentActivityName
-		ADDED from AndroidManifest.xml:52:13
+		ADDED from AndroidManifest.xml:44:13
 	android:name
-		ADDED from AndroidManifest.xml:50:13
+		ADDED from AndroidManifest.xml:42:13
+meta-data#android.support.PARENT_ACTIVITY
+ADDED from AndroidManifest.xml:46:13
+	android:value
+		ADDED from AndroidManifest.xml:48:17
+	android:name
+		ADDED from AndroidManifest.xml:47:17
