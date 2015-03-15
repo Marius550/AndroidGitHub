@@ -29,6 +29,12 @@
         android:id="@+id/edit_email"
         android:hint="@string/edit_email"
         android:textSize="16sp" />
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_message"
+        android:hint="@string/edit_message"
+        android:textSize="16sp" />
     <Button
         android:id="@+id/btn_setDefaultInputValues"
         android:layout_width="wrap_content"
