@@ -37,7 +37,6 @@
         </activity>
         <!-- A child of the main activity -->
 
-
         <activity
             android:name=".ContactResultFragmentActivity"
             android:label="@string/ContactResultFragmentActivity"

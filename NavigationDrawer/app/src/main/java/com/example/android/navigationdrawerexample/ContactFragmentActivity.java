@@ -1,13 +1,16 @@
 package com.example.android.navigationdrawerexample;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 /**
  * Created by mariuspilgrim on 12/03/15.
@@ -22,6 +25,10 @@ public class ContactFragmentActivity extends Fragment {
 
     public ContactFragmentActivity() {
         // Empty constructor required for fragment subclasses
+
+        //Testing method invocation of class Utilities
+        Utilities u = new Utilities();
+        u.testMethodExternal();
     }
 
     @Override
@@ -31,20 +38,29 @@ public class ContactFragmentActivity extends Fragment {
         String menuItem = getResources().getStringArray(R.array.menu_items_array)[i];
         getActivity().setTitle(menuItem);
 
-        Button button_setDefaultInputValues = (Button) rootView.findViewById(R.id.btn_setDefaultInputValues); //final Button?
-        button_setDefaultInputValues.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setDefaultInputValues(rootView);//Finally not null
+        TextView textView_welcome = (TextView) rootView.findViewById(R.id.welcome_info);
+        textView_welcome.setTextColor(Color.parseColor("#852339"));
+        textView_welcome.setText(getResources().getText(R.string.welcome_info));
+
+            Button button_setDefaultInputValues = (Button) rootView.findViewById(R.id.btn_setDefaultInputValues); //final Button?
+            button_setDefaultInputValues.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    try {
+                    setDefaultInputValues(rootView);//Finally not null
+                    } catch (NullPointerException ex) {
+                        messageBox("setDefaultInputValues, set to rootview?",ex.toString());
+                    }
                 }
             });
+
         Button button_sendMessage = (Button) rootView.findViewById(R.id.btn_sendMessage);
         button_sendMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sendMessage(rootView);
-            }
-        });
+                }
+            });
         return rootView;
     }
 
@@ -87,6 +103,20 @@ public class ContactFragmentActivity extends Fragment {
         editTextFirstName.setText("Max");
         editTextLastName.setText("Mustermann");
         editTextEmail.setText("max.mustermann@gmail.de");
+    }
+
+    /**
+     * Creating exception handling box
+     * @param method
+     * @param message
+     */
+    public void messageBox(String method, String message) {
+        AlertDialog.Builder messageBox = new AlertDialog.Builder(getActivity());
+        messageBox.setTitle(method);
+        messageBox.setMessage(message);
+        messageBox.setCancelable(false);
+        messageBox.setNeutralButton("OK", null);
+        messageBox.show();
     }
 
 }

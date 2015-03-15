@@ -13,14 +13,16 @@
         <item>Nextitem</item>
     </string-array>
 
-    <string name="button_send">Send</string>
     <string name="welcome_info">To contact ERCIS, please use the following form:</string>
     <string name="edit_first_name">First name</string>
     <string name="edit_last_name">Last name</string>
     <string name="edit_email">Email address</string>
     <string name="button_setDefaultText">Set default to Max Mustermann</string>
+    <string name="button_send">Send</string>
+    <string name="button_backToSendMessage">Edit</string>
     <string name="ContactFragmentActivity">Enter your message</string>
     <string name="ContactResultFragmentActivity">Your message</string>
+    <string name="Utilities">Utilities</string>
 
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
