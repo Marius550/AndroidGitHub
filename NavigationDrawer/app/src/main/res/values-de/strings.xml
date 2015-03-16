@@ -64,4 +64,8 @@
 
     <string name="error_oncreate_ContactResultFragmentActivity">onCreate Error</string>
     <string name="browser_default_address">https://www.google.de</string>
+    <string name="title_activity_maps">Karte</string>
+
+    <string name="google_maps_key">AIzaSyBNSs9YFyUfbCoSSEs_eUERAESgWV2TD8g</string>
+    <string name="campus_show_map">Auf Karte zeigen</string>
 </resources>

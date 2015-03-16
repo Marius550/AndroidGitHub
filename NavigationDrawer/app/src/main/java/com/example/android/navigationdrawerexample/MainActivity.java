@@ -183,13 +183,13 @@ public class MainActivity extends Activity {
                     selectItemNews(position);//News
                     break;
                 case 6:
-                    selectItemEvents(position);//Events
+                    selectItemCampus(position);//Campus
                     break;
                 case 7:
                     selectItemContact(position);//Contact
                     break;
                 case 8:
-                    selectItemWelcome(position);//Nextitem
+                    selectItemWelcome(position);//Copyright page
                     break;
                 default:
                     selectItemWelcome(position);
@@ -276,11 +276,11 @@ public class MainActivity extends Activity {
         setMenuDrawer(position);
     }
 
-    private void selectItemEvents(int position) {
+    private void selectItemCampus(int position) {
         // update the main content by replacing fragments
-        Fragment fragment = new EventsFragment();
+        Fragment fragment = new CampusFragmentActivity();
         Bundle args = new Bundle();
-        args.putInt(EventsFragment.ARG_EVENTS_NUMBER, position);
+        args.putInt(CampusFragmentActivity.ARG_CAMPUS_NUMBER, position);
         fragment.setArguments(args);
 
         FragmentManager fragmentManager = getFragmentManager();
@@ -442,25 +442,10 @@ public class MainActivity extends Activity {
         }
     }
 
-    /**
-     * Fragment that appears in the "content_frame", shows an events fragment
-     */
-    public static class EventsFragment extends Fragment {
-        public static final String ARG_EVENTS_NUMBER = "EVENTS_number";
-
-        public EventsFragment() {
-            // Empty constructor required for fragment subclasses
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_events, container, false);
-            int i = getArguments().getInt(ARG_EVENTS_NUMBER);
-            String menuItem = getResources().getStringArray(R.array.menu_items_array)[i];
-            getActivity().setTitle(menuItem);
-
-            return rootView;
-        }
+    public void enableCampusMap(View view) {
+        Intent intent = new Intent(this, MapsActivity.class);
+        intent.resolveActivity(getPackageManager());
+        startActivity(intent);
     }
 
 }
