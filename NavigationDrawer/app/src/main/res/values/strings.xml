@@ -8,9 +8,9 @@
         <item>Prospective Students</item>
         <item>Research</item>
         <item>News</item>
-        <item>Events</item>
+        <item>The Campus</item>
         <item>Contact</item>
-        <item>Nextitem</item>
+        <item>Copyright Page</item>
     </string-array>
 
     <string name="welcome_info">To contact ERCIS, please use the following form:</string>
@@ -50,7 +50,10 @@
     <string name="action_browser">Browser</string>
     <string name="fragment_test">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
     <string name="welcome_fragment"><b>Welcome to the ERCIS App!</b>\n This app informs you about the <b>E</b>uropean <b>R</b>esearch <b>C</b>enter for <b>I</b>nformation <b>S</b>ystems (ERCIS), which is located in the German city Münster. The ERCIS is an international network of scientists, conducting cooperative research in the field of Information Systems. \n \n To navigate through the app, swipe in the main menu from the left or tap on the ERCIS home icon.</string>
+
     <string name="department_fragment">The Department of Information Systems was founded in 1990 as part of the Münster School of Business and Economics (MSBE). More than 175 persons work at the department; there are seven professors, about 75 staff members and about 100 student assistants. Modern hardware and software facilities are available. The department is responsible for the Wirtschaftsinformatik bachelor program and the Information Systems master program in english language. Every year up to 100 students finish their studies to work in different sectors as consultants, software project managers, information managers, information system and organization designers etc. In application oriented research and development projects we connect business concepts with modern information and communication techniques to obtain holistic solutions. In cooperation with companies and associations we implement research results. The department provides consulting in designing of operational IT application and process organization.</string>
+    <string name="department_fragment_prof_list">The department is represented by the following professors:</string>
+
     <string name="affairs_fragment">Affairs \n Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
     <string name="prospective_fragment">Prospective \n Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
     <string name="research_fragment">Research \n Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>

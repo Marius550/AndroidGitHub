@@ -213,9 +213,9 @@ public class MainActivity extends Activity {
 
     private void selectItemDepartment(int position) {
         // update the main content by replacing fragments
-        Fragment fragment = new DepartmentFragment();
+        Fragment fragment = new DepartmentFragmentActivity();
         Bundle args = new Bundle();
-        args.putInt(DepartmentFragment.ARG_DEPARTMENT_NUMBER, position);
+        args.putInt(DepartmentFragmentActivity.ARG_DEPARTMENT_NUMBER, position);
         fragment.setArguments(args);
 
         FragmentManager fragmentManager = getFragmentManager();
@@ -351,27 +351,6 @@ public class MainActivity extends Activity {
 
             //Get menu id / Name to finally set the title it is connected to
             int i = getArguments().getInt(ARG_WELCOME_NUMBER);
-            String menuItem = getResources().getStringArray(R.array.menu_items_array)[i];
-            getActivity().setTitle(menuItem);
-
-            return rootView;
-        }
-    }
-
-    /**
-     * Fragment that appears in the "content_frame", shows a department fragment
-     */
-    public static class DepartmentFragment extends Fragment {
-        public static final String ARG_DEPARTMENT_NUMBER = "DEPARTMENT_number";
-
-        public DepartmentFragment() {
-            // Empty constructor required for fragment subclasses
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_department, container, false);
-            int i = getArguments().getInt(ARG_DEPARTMENT_NUMBER);
             String menuItem = getResources().getStringArray(R.array.menu_items_array)[i];
             getActivity().setTitle(menuItem);
 

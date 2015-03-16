@@ -8,9 +8,9 @@
         <item>Studieninteressierte</item>
         <item>Forschung</item>
         <item>Aktuelles</item>
-        <item>Events</item>
+        <item>Der Campus</item>
         <item>Kontakt</item>
-        <item>Nextitem</item>
+        <item>Impressum</item>
     </string-array>
 
     <string name="welcome_info">Verwenden Sie das folgende Formular um mit ERCIS Kontakt aufzunehmen:</string>
@@ -50,7 +50,10 @@
     <string name="action_browser">Browser</string>
     <string name="fragment_test">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
     <string name="welcome_fragment"><b>Willkommen to the ERCIS App!</b>\n This app informs you about the <b>E</b>uropean <b>R</b>esearch <b>C</b>enter for <b>I</b>nformation <b>S</b>ystems (ERCIS), which is located in the German city Münster. The ERCIS is an international network of scientists, conducting cooperative research in the field of Information Systems. \n \n To navigate through the app, swipe in the main menu from the left or tap on the ERCIS home icon.</string>
+
     <string name="department_fragment">Department \n Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
+    <string name="department_fragment_prof_list">Das Department ist durch die folgenden Professoren vertreten:</string>
+
     <string name="affairs_fragment">Studierende \n Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
     <string name="prospective_fragment">Studieninteressierte \n Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
     <string name="research_fragment">Forschung \n Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
