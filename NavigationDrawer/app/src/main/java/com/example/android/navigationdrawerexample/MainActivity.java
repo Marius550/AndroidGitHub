@@ -154,7 +154,7 @@ public class MainActivity extends Activity {
      * Opens Android device browser
      */
     public void openAndroidBrowser() {
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.browser_default_address)));
         startActivity(browserIntent);
     }
 

@@ -21,13 +21,17 @@
     <string name="edit_email_incorrect_title">Incorrect email input</string>
     <string name="edit_message"><b>Enter your message</b></string>
 
-    <string name="result_first_name"><b>First name: </b></string>
-    <string name="result_last_name"><b>Last name: </b></string>
-    <string name="result_email"><b>Email address: </b></string>
-    <string name="result_message"><b>Entered message: </b></string>
+    <string name="result_first_name">First name:&#160;</string>
+    <string name="result_last_name">Last name:&#160;</string>
+    <string name="result_email">Email address:&#160;</string>
+    <string name="result_message">Entered message:&#160;</string>
+
+    <string name="contact_email_subject">Message from ERCIS app</string>
 
     <string name="button_setDefaultText">Set default to Max Mustermann</string>
     <string name="button_send">Next</string>
+    <string name="button_sendAsEmail">Send email</string>
+    <string name="email_chooser">Send email ...</string>
     <string name="button_backToSendMessage">Edit</string>
     <string name="ContactFragmentActivity">Enter your message</string>
     <string name="ContactResultFragmentActivity">Your message</string>
@@ -56,4 +60,5 @@
     <string name="nextitem_fragment">Nextitem \n Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
 
     <string name="error_oncreate_ContactResultFragmentActivity">onCreate error</string>
+    <string name="browser_default_address">https://www.google.com</string>
 </resources>

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.text.Html;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -38,10 +39,15 @@ public class ContactResultFragmentActivity extends Activity {
             TextView textViewEmail = (TextView) findViewById(R.id.result_email);
             TextView textViewMessage = (TextView) findViewById(R.id.result_message);
 
-            textViewFirstName.append(getResources().getString(R.string.result_first_name) + messageFirstName);
-            textViewLastName.append(getResources().getString(R.string.result_last_name) + messageLastName);
-            textViewEmail.append(getResources().getString(R.string.result_email) + messageEmail);
-            textViewMessage.append(getResources().getString(R.string.result_message) + messageMessage);
+            String textViewFirstNameHtml = "<b>" + getResources().getString(R.string.result_first_name) + "</b>" + messageFirstName;
+            String textViewLastNameHtml = "<b>" + getResources().getString(R.string.result_last_name) + "</b>" + messageLastName;
+            String textViewEmailHtml = "<b>" + getResources().getString(R.string.result_email) + "</b>" + messageEmail;
+            String textViewMessageHtml = "<b>" + getResources().getString(R.string.result_message) + "</b>" + messageMessage;
+
+            textViewFirstName.append(Html.fromHtml(textViewFirstNameHtml));
+            textViewLastName.append(Html.fromHtml(textViewLastNameHtml));
+            textViewEmail.append(Html.fromHtml(textViewEmailHtml));
+            textViewMessage.append(Html.fromHtml(textViewMessageHtml));
 
             //throw new RuntimeException(); //triggers Exception
         } catch (Exception ex) {
@@ -95,13 +101,31 @@ public class ContactResultFragmentActivity extends Activity {
      * Opens Android device browser
      */
     public void openAndroidBrowser() {
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.browser_default_address)));
         startActivity(browserIntent);
     }
 
+    public void sendAsEmail(View view) {
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                "mailto","mariuspilgrim@icloud.com", null)); //This should be the ERCIS email address
+
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, getResources().getString(R.string.contact_email_subject));
+
+        Intent intent = getIntent();
+        String messageFirstName = intent.getStringExtra(ContactFragmentActivity.EXTRA_MESSAGE_FIRST_NAME);
+        String messageLastName = intent.getStringExtra(ContactFragmentActivity.EXTRA_MESSAGE_LAST_NAME);
+        String messageEmail = intent.getStringExtra(ContactFragmentActivity.EXTRA_MESSAGE_EMAIL);
+        String messageMessage= intent.getStringExtra(ContactFragmentActivity.EXTRA_MESSAGE_MESSAGE);
+
+        String completeEmailMessage = "<b>" + messageFirstName + "</b><br/><b>" + messageLastName + "</b><br/><b>" + messageEmail + "</b><br/>" + messageMessage;
+
+            emailIntent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(completeEmailMessage));
+        startActivity(Intent.createChooser(emailIntent, getResources().getString(R.string.email_chooser)));
+    }
+
     public void backToSendMessage(View view) {
-            setContentView(R.layout.fragment_contact);
-            finish();
+        setContentView(R.layout.fragment_contact);
+        finish();
     }
 
     /**

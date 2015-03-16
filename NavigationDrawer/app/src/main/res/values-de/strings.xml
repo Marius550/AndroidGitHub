@@ -21,13 +21,17 @@
     <string name="edit_email_incorrect_title">Ungültige Email Adresse</string>
     <string name="edit_message"><b>Ihre Nachricht</b></string>
 
-    <string name="result_first_name"><b>Vorname: </b></string>
-    <string name="result_last_name"><b>Nachname: </b></string>
-    <string name="result_email"><b>Email Adresse: </b></string>
-    <string name="result_message"><b>Ihre Nachricht: </b></string>
+    <string name="result_first_name">Vorname:&#160;</string>
+    <string name="result_last_name">Nachname:&#160;</string>
+    <string name="result_email">Email Adresse:&#160;</string>
+    <string name="result_message">Ihre Nachricht:&#160;</string>
+
+    <string name="contact_email_subject">Nachricht von der ERCIS App</string>
 
     <string name="button_setDefaultText">Beispiel Max Mustermann</string>
     <string name="button_send">Weiter</string>
+    <string name="button_sendAsEmail">Senden</string>
+    <string name="email_chooser">Email senden</string>
     <string name="button_backToSendMessage">Ändern</string>
     <string name="ContactFragmentActivity">Nachrichteneingabe</string>
     <string name="ContactResultFragmentActivity">Ihre Nachricht</string>
@@ -54,4 +58,7 @@
     <string name="events_fragment">Events \n Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
     <string name="contact_fragment">Kontakt \n Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
     <string name="nextitem_fragment">Nextitem \n Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
+
+    <string name="error_oncreate_ContactResultFragmentActivity">onCreate Error</string>
+    <string name="browser_default_address">https://www.google.de</string>
 </resources>
