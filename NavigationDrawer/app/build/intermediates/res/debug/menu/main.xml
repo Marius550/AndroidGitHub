@@ -28,4 +28,8 @@
         android:id="@+id/action_browser"
         android:title="@string/action_browser"
         android:showAsAction="never" />
+    <item
+        android:id="@+id/action_map"
+        android:title="@string/action_map"
+        android:showAsAction="never" />
 </menu><!-- From: file:/Users/mariuspilgrim/Documents/AndroidGitHub/NavigationDrawer/app/src/main/res/menu/main.xml -->

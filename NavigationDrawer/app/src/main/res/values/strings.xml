@@ -50,6 +50,7 @@
     <string name="app_not_available">Sorry, there\'s no web browser available</string>
     <string name="action_settings">Settings</string>
     <string name="action_browser">Browser</string>
+    <string name="action_map">ERCIS map</string>
     <string name="fragment_test">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
     <string name="welcome_fragment"><b>Welcome to the ERCIS App!</b>\n This app informs you about the <b>E</b>uropean <b>R</b>esearch <b>C</b>enter for <b>I</b>nformation <b>S</b>ystems (ERCIS), which is located in the German city Münster. The ERCIS is an international network of scientists, conducting cooperative research in the field of Information Systems. \n \n To navigate through the app, swipe in the main menu from the left or tap on the ERCIS home icon.</string>
 
@@ -67,7 +68,9 @@
     <string name="error_oncreate_ContactResultFragmentActivity">onCreate error</string>
     <string name="browser_default_address">https://www.google.com</string>
     <string name="title_activity_maps">Leonardo Campus</string>
+    <string name="title_activity_gallery">Campus Gallery</string>
 
     <string name="google_maps_key">AIzaSyBNSs9YFyUfbCoSSEs_eUERAESgWV2TD8g</string>
     <string name="campus_show_map">Show on map</string>
+    <string name="campus_address">Leonardo-Campus 3, 48149 Münster</string>
 </resources>

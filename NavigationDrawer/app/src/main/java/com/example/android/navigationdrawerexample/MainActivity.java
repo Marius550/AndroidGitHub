@@ -122,7 +122,7 @@ public class MainActivity extends Activity {
         // Handle action buttons
         switch(item.getItemId()) {
         case R.id.action_websearch:
-            // create intent to perform web search for this planet
+            // create intent to perform web search for this title
             Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
             intent.putExtra(SearchManager.QUERY, getActionBar().getTitle());
             // catch event that there's no activity to handle intent
@@ -133,10 +133,13 @@ public class MainActivity extends Activity {
             }
             return true;
         case R.id.action_settings:
-            openAndroidSettings();
+             openAndroidSettings();
                 return true;
         case R.id.action_browser:
              openAndroidBrowser();
+                return true;
+        case R.id.action_map:
+             goToGoogleMapsActionBar();
                 return true;
         default:
             return super.onOptionsItemSelected(item);
@@ -156,6 +159,14 @@ public class MainActivity extends Activity {
     public void openAndroidBrowser() {
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.browser_default_address)));
         startActivity(browserIntent);
+    }
+
+    /**
+     * Opens google maps fragment activity
+     */
+    public void goToGoogleMapsActionBar() {
+        Intent intent = new Intent(this, MapsFragmentActivity.class);
+        startActivity(intent);
     }
 
     /* The click listener for ListView in the navigation drawer */
@@ -183,7 +194,7 @@ public class MainActivity extends Activity {
                     selectItemNews(position);//News
                     break;
                 case 6:
-                    selectItemCampus(position);//Campus
+                    selectItemCampusFragment(position);//Campus
                     break;
                 case 7:
                     selectItemContact(position);//Contact
@@ -276,7 +287,7 @@ public class MainActivity extends Activity {
         setMenuDrawer(position);
     }
 
-    private void selectItemCampus(int position) {
+    private void selectItemCampusFragment(int position) {
         // update the main content by replacing fragments
         Fragment fragment = new CampusFragment();
         Bundle args = new Bundle();
@@ -285,6 +296,13 @@ public class MainActivity extends Activity {
 
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+
+        setMenuDrawer(position);
+    }
+
+    private void selectItemCampusActivity(int position) {
+        Intent intent = new Intent(this, GalleryActivity.class);
+        startActivity(intent);
 
         setMenuDrawer(position);
     }

@@ -71,6 +71,10 @@
             android:name="com.example.android.navigationdrawerexample.MapsFragmentActivity"
             android:label="@string/title_activity_maps" >
         </activity>
+        <activity
+            android:name="com.example.android.navigationdrawerexample.GalleryActivity"
+            android:label="@string/title_activity_gallery" >
+        </activity>
     </application>
 
 </manifest>

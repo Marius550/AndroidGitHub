@@ -2,6 +2,8 @@ package com.example.android.navigationdrawerexample;
 
 import android.app.SearchManager;
 import android.content.Intent;
+import android.location.Location;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.provider.Settings;
 import android.support.v4.app.FragmentActivity;
@@ -12,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
@@ -68,8 +71,8 @@ public class MapsFragmentActivity extends FragmentActivity {
                 openAndroidBrowser();
                 return true;
             case android.R.id.home:
-                backToFragmentCampusActionBar(findViewById(R.id.home));
-                return true;
+                finish();
+                //backToFragmentCampusActionBar(findViewById(R.id.home));
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -90,10 +93,13 @@ public class MapsFragmentActivity extends FragmentActivity {
         startActivity(browserIntent);
     }
 
+    /*
+    Working code!!!
     public void backToFragmentCampusActionBar(View view) {
         setContentView(R.layout.fragment_campus);
         finish();
     }
+    */
 
     /**
      * Sets up the map if it is possible to do so (i.e., the Google Play services APK is correctly
@@ -130,7 +136,13 @@ public class MapsFragmentActivity extends FragmentActivity {
      * This should only be called once and when we are sure that {@link #mMap} is not null.
      */
     private void setUpMap() {
-        mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
+        String campus_address = getResources().getString(R.string.campus_address);
+        Location campus  = new Location(LocationManager.NETWORK_PROVIDER);
+        campus.setLatitude(51.975707);
+        campus.setLongitude(7.601476);
+
+        mMap.addMarker(new MarkerOptions().position(new LatLng(campus.getLatitude(), campus.getLongitude())).title(campus_address));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(campus.getLatitude(), campus.getLongitude()), 12.0f));//Determines the initial zoom level
     }
 
 }

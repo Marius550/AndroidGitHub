@@ -3,7 +3,9 @@ package com.example.android.navigationdrawerexample;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.TypedArray;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -12,52 +14,90 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.Gallery;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ContactResultActivity extends Activity {
+@SuppressWarnings("deprecation")
+public class GalleryActivity extends Activity {
 
-    public ContactResultActivity() {
+    public GalleryActivity() {
         //MainActivity m = new MainActivity();
     }
+
+    //the images to display
+    Integer[] imageIDs = {
+            R.drawable.welcome,
+            R.drawable.ercis,
+            R.drawable.welcome,
+            R.drawable.welcome,
+            R.drawable.welcome,
+            R.drawable.welcome,
+            R.drawable.welcome,
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_campus);
 
-        try {
-            setContentView(R.layout.fragment_contact_results);
+        // Note that Gallery view is deprecated in Android 4.1---
+        /*
+        Gallery gallery = (Gallery) findViewById(R.id.gallery_campus);
+        gallery.setAdapter(new ImageAdapter(this));
+        gallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View v, int position,long id)
+            {
+                Toast.makeText(getBaseContext(),"pic" + (position + 1) + " selected", Toast.LENGTH_SHORT).show();
+                // display the images selected
+                ImageView imageView = (ImageView) findViewById(R.id.image_gallery);
+                imageView.setImageResource(imageIDs[position]);
+            }
+        });
+        */
 
-            Intent intent = getIntent();
-            String messageFirstName = intent.getStringExtra(ContactFragment.EXTRA_MESSAGE_FIRST_NAME);
-            String messageLastName = intent.getStringExtra(ContactFragment.EXTRA_MESSAGE_LAST_NAME);
-            String messageEmail = intent.getStringExtra(ContactFragment.EXTRA_MESSAGE_EMAIL);
-            String messageMessage= intent.getStringExtra(ContactFragment.EXTRA_MESSAGE_MESSAGE);
-
-            TextView textViewFirstName = (TextView) findViewById(R.id.result_first_name);
-            TextView textViewLastName = (TextView) findViewById(R.id.result_last_name);
-            TextView textViewEmail = (TextView) findViewById(R.id.result_email);
-            TextView textViewMessage = (TextView) findViewById(R.id.result_message);
-
-            String textViewFirstNameHtml = "<b>" + getResources().getString(R.string.result_first_name) + "</b>" + messageFirstName;
-            String textViewLastNameHtml = "<b>" + getResources().getString(R.string.result_last_name) + "</b>" + messageLastName;
-            String textViewEmailHtml = "<b>" + getResources().getString(R.string.result_email) + "</b>" + messageEmail;
-            String textViewMessageHtml = "<b>" + getResources().getString(R.string.result_message) + "</b>" + messageMessage;
-
-            textViewFirstName.append(Html.fromHtml(textViewFirstNameHtml));
-            textViewLastName.append(Html.fromHtml(textViewLastNameHtml));
-            textViewEmail.append(Html.fromHtml(textViewEmailHtml));
-            textViewMessage.append(Html.fromHtml(textViewMessageHtml));
-
-            //throw new RuntimeException(); //triggers Exception
-        } catch (Exception ex) {
-            messageBox(getResources().getString(R.string.error_oncreate_ContactResultFragmentActivity), ex.getMessage());
-            ex.printStackTrace();
-        }
         // enable ActionBar app icon to behave as action to toggle nav drawer
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
     }
+
+    public class ImageAdapter extends BaseAdapter {
+        private Context context;
+        private int itemBackground;
+        public ImageAdapter(Context c)
+        {
+            context = c;
+            // sets a grey background; wraps around the images
+            TypedArray a =obtainStyledAttributes(R.styleable.MyGallery);
+            itemBackground = a.getResourceId(R.styleable.MyGallery_android_galleryItemBackground, 0);
+            a.recycle();
+        }
+        // returns the number of images
+        public int getCount() {
+            return imageIDs.length;
+        }
+        // returns the ID of an item
+        public Object getItem(int position) {
+            return position;
+        }
+        // returns the ID of an item
+        public long getItemId(int position) {
+            return position;
+        }
+        // returns an ImageView view
+        public View getView(int position, View convertView, ViewGroup parent) {
+            ImageView imageView = new ImageView(context);
+            imageView.setImageResource(imageIDs[position]);
+            imageView.setLayoutParams(new Gallery.LayoutParams(100, 100));
+            imageView.setBackgroundResource(itemBackground);
+            return imageView;
+        }
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -92,8 +132,9 @@ public class ContactResultActivity extends Activity {
                 goToGoogleMapsActionBar();
                 return true;
             case android.R.id.home:
-                backToSendMessageActionBar(findViewById(R.id.home));
+                finish();
                 return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -122,32 +163,12 @@ public class ContactResultActivity extends Activity {
         startActivity(intent);
     }
 
-    public void sendAsEmail(View view) {
-        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                "mailto","mariuspilgrim@icloud.com", null)); //This should be the ERCIS email address
-
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, getResources().getString(R.string.contact_email_subject));
-
-        Intent intent = getIntent();
-        String messageFirstName = intent.getStringExtra(ContactFragment.EXTRA_MESSAGE_FIRST_NAME);
-        String messageLastName = intent.getStringExtra(ContactFragment.EXTRA_MESSAGE_LAST_NAME);
-        String messageEmail = intent.getStringExtra(ContactFragment.EXTRA_MESSAGE_EMAIL);
-        String messageMessage= intent.getStringExtra(ContactFragment.EXTRA_MESSAGE_MESSAGE);
-
-        String completeEmailMessage = "<b>" + messageFirstName + "</b><br/><b>" + messageLastName + "</b><br/><b>" + messageEmail + "</b><br/>" + messageMessage;
-
-            emailIntent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(completeEmailMessage));
-        startActivity(Intent.createChooser(emailIntent, getResources().getString(R.string.email_chooser)));
-    }
-
-    public void backToSendMessage(View view) {
-        setContentView(R.layout.fragment_contact);
-        finish();
-    }
-
-    public void backToSendMessageActionBar(View view) {
-        setContentView(R.layout.fragment_contact);
-        finish();
+    /**
+     * Opens campus gallery activity
+     */
+    public void goToGalleryActionBar() {
+        Intent intent = new Intent(this, GalleryActivity.class);
+        startActivity(intent);
     }
 
     /**

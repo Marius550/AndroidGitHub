@@ -28,6 +28,12 @@ public class CampusFragment extends Fragment {
         String menuItem = getResources().getStringArray(R.array.menu_items_array)[i];
         getActivity().setTitle(menuItem);
 
+        //Starting GalleryActivity.class
+        //Intent intent = new Intent(getActivity(), GalleryActivity.class);
+        //startActivity(intent);
+
+        /*
+        Working code!!!
         Button button_goToGoogleMaps = (Button) rootView.findViewById(R.id.btn_goToGoogleMaps);
         button_goToGoogleMaps.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,7 +45,9 @@ public class CampusFragment extends Fragment {
                 }
             }
         });
+        */
         return rootView;
+
     }
 
     /**
@@ -56,9 +64,20 @@ public class CampusFragment extends Fragment {
         messageBox.show();
     }
 
+    /*
+    Working code!!!
     public void goToGoogleMaps(View rootView) {
         Intent intent = new Intent(getActivity(), MapsFragmentActivity.class);
         startActivity(intent);
     }
+
+    <Button
+    android:id="@+id/btn_goToGoogleMaps"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/campus_show_map"
+    android:onClick="goToGoogleMaps"
+    android:textSize="16sp" />
+    */
 
 }
