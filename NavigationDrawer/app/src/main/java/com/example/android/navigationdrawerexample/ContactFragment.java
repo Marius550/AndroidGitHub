@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 /**
  * Created by mariuspilgrim on 12/03/15.
  */
-public class ContactFragmentActivity extends Fragment {
+public class ContactFragment extends Fragment {
 
     public static final String ARG_CONTACT_NUMBER = "CONTACT_number";
 
@@ -27,7 +27,7 @@ public class ContactFragmentActivity extends Fragment {
     public final static String EXTRA_MESSAGE_EMAIL = "com.example.android.navigationdrawerexample.MESSAGE_EMAIL";
     public final static String EXTRA_MESSAGE_MESSAGE = "com.example.android.navigationdrawerexample.MESSAGE_MESSAGE";
 
-    public ContactFragmentActivity() {
+    public ContactFragment() {
         // Empty constructor required for fragment subclasses
 
         //Testing method invocation of class Utilities
@@ -75,7 +75,7 @@ public class ContactFragmentActivity extends Fragment {
     public Boolean sendMessage(View rootView) {
         //Do something in response to button
         try {
-            Intent intent = new Intent(getActivity(), ContactResultFragmentActivity.class); //getActivity() must be inserted instead of this
+            Intent intent = new Intent(getActivity(), ContactResultActivity.class); //getActivity() must be inserted instead of this
 
             EditText editTextFirstName = (EditText) rootView.findViewById(R.id.edit_first_name);
             EditText editTextLastName = (EditText) rootView.findViewById(R.id.edit_last_name);

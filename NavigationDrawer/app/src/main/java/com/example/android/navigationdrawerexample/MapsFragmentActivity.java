@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.GoogleMap;
@@ -16,7 +17,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsActivity extends FragmentActivity {
+public class MapsFragmentActivity extends FragmentActivity {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
 
@@ -25,6 +26,10 @@ public class MapsActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
         setUpMapIfNeeded();
+
+        // enable ActionBar app icon to behave as action to toggle nav drawer
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setHomeButtonEnabled(true);
     }
 
     @Override
@@ -62,6 +67,9 @@ public class MapsActivity extends FragmentActivity {
             case R.id.action_browser:
                 openAndroidBrowser();
                 return true;
+            case android.R.id.home:
+                backToFragmentCampusActionBar(findViewById(R.id.home));
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -80,6 +88,11 @@ public class MapsActivity extends FragmentActivity {
     public void openAndroidBrowser() {
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.browser_default_address)));
         startActivity(browserIntent);
+    }
+
+    public void backToFragmentCampusActionBar(View view) {
+        setContentView(R.layout.fragment_campus);
+        finish();
     }
 
     /**

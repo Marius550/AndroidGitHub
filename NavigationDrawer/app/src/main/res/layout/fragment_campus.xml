@@ -5,10 +5,10 @@
     android:layout_height="fill_parent" >
 
     <Button
-        android:id="@+id/btn_enableCampusMap"
+        android:id="@+id/btn_goToGoogleMaps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/campus_show_map"
-        android:onClick="enableCampusMap"
+        android:onClick="goToGoogleMaps"
         android:textSize="16sp" />
 </RelativeLayout>

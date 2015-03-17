@@ -56,14 +56,8 @@
         <!-- A child of the main activity -->
 
         <activity
-            android:name=".ContactResultFragmentActivity"
-            android:label="@string/ContactResultFragmentActivity"
-            android:parentActivityName=".MainActivity" >
-
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.android.navigationdrawerexample.MainActivity" />
+            android:name=".ContactResultActivity"
+            android:label="@string/ContactResultFragmentActivity">
         </activity>
 
         <meta-data
@@ -74,7 +68,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".MapsActivity"
+            android:name=".MapsFragmentActivity"
             android:label="@string/title_activity_maps" >
         </activity>
     </application>

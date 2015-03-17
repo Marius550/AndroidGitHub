@@ -2,21 +2,24 @@ package com.example.android.navigationdrawerexample;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 /**
  * Created by mariuspilgrim on 12/03/15.
  */
-public class CampusFragmentActivity extends Fragment {
+public class CampusFragment extends Fragment {
 
     public static final String ARG_CAMPUS_NUMBER = "CAMPUS_number";
 
-    public CampusFragmentActivity() {
-
-    }
+    /*
+        public CampusFragment() {
+        }
+    */
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -25,12 +28,17 @@ public class CampusFragmentActivity extends Fragment {
         String menuItem = getResources().getStringArray(R.array.menu_items_array)[i];
         getActivity().setTitle(menuItem);
 
-        /*
-        TextView textView_welcome = (TextView) rootView.findViewById(R.id.department_prof_list);
-        textView_welcome.setTextColor(Color.parseColor("#852339"));
-        textView_welcome.setText(Html.fromHtml("bla"));
-        */
-
+        Button button_goToGoogleMaps = (Button) rootView.findViewById(R.id.btn_goToGoogleMaps);
+        button_goToGoogleMaps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    goToGoogleMaps(rootView);//Finally not null
+                } catch (NullPointerException ex) {
+                    messageBox("goToGoogleMaps, set to rootview?",ex.toString());
+                }
+            }
+        });
         return rootView;
     }
 
@@ -46,6 +54,11 @@ public class CampusFragmentActivity extends Fragment {
         messageBox.setCancelable(false);
         messageBox.setNeutralButton("OK", null);
         messageBox.show();
+    }
+
+    public void goToGoogleMaps(View rootView) {
+        Intent intent = new Intent(getActivity(), MapsFragmentActivity.class);
+        startActivity(intent);
     }
 
 }

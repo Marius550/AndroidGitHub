@@ -13,6 +13,8 @@
         <item>Copyright Page</item>
     </string-array>
 
+    <string name="menu_item_title_alternative">ERCIS Department</string>
+
     <string name="welcome_info">To contact ERCIS, please use the following form:</string>
     <string name="edit_first_name"><b>First name</b></string>
     <string name="edit_last_name"><b>Last name</b></string>
@@ -64,7 +66,7 @@
 
     <string name="error_oncreate_ContactResultFragmentActivity">onCreate error</string>
     <string name="browser_default_address">https://www.google.com</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_maps">Leonardo Campus</string>
 
     <string name="google_maps_key">AIzaSyBNSs9YFyUfbCoSSEs_eUERAESgWV2TD8g</string>
     <string name="campus_show_map">Show on map</string>

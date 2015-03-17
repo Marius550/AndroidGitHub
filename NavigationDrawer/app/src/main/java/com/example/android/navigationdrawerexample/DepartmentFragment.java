@@ -14,11 +14,11 @@ import android.widget.TextView;
 /**
  * Created by mariuspilgrim on 12/03/15.
  */
-public class DepartmentFragmentActivity extends Fragment {
+public class DepartmentFragment extends Fragment {
 
     public static final String ARG_DEPARTMENT_NUMBER = "DEPARTMENT_number";
 
-    public DepartmentFragmentActivity() {
+    public DepartmentFragment() {
         // Empty constructor required for fragment subclasses
 
         //Testing method invocation of class Utilities
@@ -29,9 +29,13 @@ public class DepartmentFragmentActivity extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.fragment_department, container, false);
+        /*
+        Usually the following code is used for titles
         int i = getArguments().getInt(ARG_DEPARTMENT_NUMBER);
         String menuItem = getResources().getStringArray(R.array.menu_items_array)[i];
-        getActivity().setTitle(menuItem);
+        getActivity().setTitle(menuItem)
+        */
+        getActivity().setTitle(getResources().getString(R.string.menu_item_title_alternative));
 
         TextView textView_welcome = (TextView) rootView.findViewById(R.id.department_prof_list);
         textView_welcome.setTextColor(Color.parseColor("#852339"));

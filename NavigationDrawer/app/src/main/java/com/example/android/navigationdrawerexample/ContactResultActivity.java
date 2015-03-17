@@ -15,9 +15,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ContactResultFragmentActivity extends Activity {
+public class ContactResultActivity extends Activity {
 
-    public ContactResultFragmentActivity() {
+    public ContactResultActivity() {
         //MainActivity m = new MainActivity();
     }
 
@@ -29,10 +29,10 @@ public class ContactResultFragmentActivity extends Activity {
             setContentView(R.layout.fragment_contact_results);
 
             Intent intent = getIntent();
-            String messageFirstName = intent.getStringExtra(ContactFragmentActivity.EXTRA_MESSAGE_FIRST_NAME);
-            String messageLastName = intent.getStringExtra(ContactFragmentActivity.EXTRA_MESSAGE_LAST_NAME);
-            String messageEmail = intent.getStringExtra(ContactFragmentActivity.EXTRA_MESSAGE_EMAIL);
-            String messageMessage= intent.getStringExtra(ContactFragmentActivity.EXTRA_MESSAGE_MESSAGE);
+            String messageFirstName = intent.getStringExtra(ContactFragment.EXTRA_MESSAGE_FIRST_NAME);
+            String messageLastName = intent.getStringExtra(ContactFragment.EXTRA_MESSAGE_LAST_NAME);
+            String messageEmail = intent.getStringExtra(ContactFragment.EXTRA_MESSAGE_EMAIL);
+            String messageMessage= intent.getStringExtra(ContactFragment.EXTRA_MESSAGE_MESSAGE);
 
             TextView textViewFirstName = (TextView) findViewById(R.id.result_first_name);
             TextView textViewLastName = (TextView) findViewById(R.id.result_last_name);
@@ -54,6 +54,9 @@ public class ContactResultFragmentActivity extends Activity {
             messageBox(getResources().getString(R.string.error_oncreate_ContactResultFragmentActivity), ex.getMessage());
             ex.printStackTrace();
         }
+        // enable ActionBar app icon to behave as action to toggle nav drawer
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setHomeButtonEnabled(true);
     }
 
     @Override
@@ -85,6 +88,9 @@ public class ContactResultFragmentActivity extends Activity {
             case R.id.action_browser:
                 openAndroidBrowser();
                 return true;
+            case android.R.id.home:
+                backToSendMessageActionBar(findViewById(R.id.home));
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -112,10 +118,10 @@ public class ContactResultFragmentActivity extends Activity {
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, getResources().getString(R.string.contact_email_subject));
 
         Intent intent = getIntent();
-        String messageFirstName = intent.getStringExtra(ContactFragmentActivity.EXTRA_MESSAGE_FIRST_NAME);
-        String messageLastName = intent.getStringExtra(ContactFragmentActivity.EXTRA_MESSAGE_LAST_NAME);
-        String messageEmail = intent.getStringExtra(ContactFragmentActivity.EXTRA_MESSAGE_EMAIL);
-        String messageMessage= intent.getStringExtra(ContactFragmentActivity.EXTRA_MESSAGE_MESSAGE);
+        String messageFirstName = intent.getStringExtra(ContactFragment.EXTRA_MESSAGE_FIRST_NAME);
+        String messageLastName = intent.getStringExtra(ContactFragment.EXTRA_MESSAGE_LAST_NAME);
+        String messageEmail = intent.getStringExtra(ContactFragment.EXTRA_MESSAGE_EMAIL);
+        String messageMessage= intent.getStringExtra(ContactFragment.EXTRA_MESSAGE_MESSAGE);
 
         String completeEmailMessage = "<b>" + messageFirstName + "</b><br/><b>" + messageLastName + "</b><br/><b>" + messageEmail + "</b><br/>" + messageMessage;
 
@@ -124,6 +130,11 @@ public class ContactResultFragmentActivity extends Activity {
     }
 
     public void backToSendMessage(View view) {
+        setContentView(R.layout.fragment_contact);
+        finish();
+    }
+
+    public void backToSendMessageActionBar(View view) {
         setContentView(R.layout.fragment_contact);
         finish();
     }

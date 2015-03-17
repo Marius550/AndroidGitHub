@@ -213,9 +213,9 @@ public class MainActivity extends Activity {
 
     private void selectItemDepartment(int position) {
         // update the main content by replacing fragments
-        Fragment fragment = new DepartmentFragmentActivity();
+        Fragment fragment = new DepartmentFragment();
         Bundle args = new Bundle();
-        args.putInt(DepartmentFragmentActivity.ARG_DEPARTMENT_NUMBER, position);
+        args.putInt(DepartmentFragment.ARG_DEPARTMENT_NUMBER, position);
         fragment.setArguments(args);
 
         FragmentManager fragmentManager = getFragmentManager();
@@ -278,9 +278,9 @@ public class MainActivity extends Activity {
 
     private void selectItemCampus(int position) {
         // update the main content by replacing fragments
-        Fragment fragment = new CampusFragmentActivity();
+        Fragment fragment = new CampusFragment();
         Bundle args = new Bundle();
-        args.putInt(CampusFragmentActivity.ARG_CAMPUS_NUMBER, position);
+        args.putInt(CampusFragment.ARG_CAMPUS_NUMBER, position);
         fragment.setArguments(args);
 
         FragmentManager fragmentManager = getFragmentManager();
@@ -291,9 +291,9 @@ public class MainActivity extends Activity {
 
     private void selectItemContact(int position) {
         // update the main content by replacing fragments
-        Fragment fragment = new ContactFragmentActivity(); //Does not use bottom fragment class but own ContactFragmentActivity
+        Fragment fragment = new ContactFragment(); //Does not use bottom fragment class but own ContactFragment
         Bundle args = new Bundle();
-        args.putInt(ContactFragmentActivity.ARG_CONTACT_NUMBER, position); //Also adjust to ContactFragmentActivity
+        args.putInt(ContactFragment.ARG_CONTACT_NUMBER, position); //Also adjust to ContactFragment
         fragment.setArguments(args);
 
         FragmentManager fragmentManager = getFragmentManager();
@@ -440,12 +440,6 @@ public class MainActivity extends Activity {
 
             return rootView;
         }
-    }
-
-    public void enableCampusMap(View view) {
-        Intent intent = new Intent(this, MapsActivity.class);
-        intent.resolveActivity(getPackageManager());
-        startActivity(intent);
     }
 
 }
