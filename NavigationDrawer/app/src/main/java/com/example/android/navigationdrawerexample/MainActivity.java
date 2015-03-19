@@ -49,8 +49,13 @@ public class MainActivity extends Activity {
     private CharSequence mTitle;
     private String[] mMenuItemTitles;
 
+    public static String PACKAGE_NAME;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        PACKAGE_NAME = getApplicationContext().getPackageName();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -296,13 +301,6 @@ public class MainActivity extends Activity {
 
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
-
-        setMenuDrawer(position);
-    }
-
-    private void selectItemCampusActivity(int position) {
-        Intent intent = new Intent(this, GalleryActivity.class);
-        startActivity(intent);
 
         setMenuDrawer(position);
     }

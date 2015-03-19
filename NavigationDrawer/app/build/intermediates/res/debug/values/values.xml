@@ -2,6 +2,13 @@
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
     <!-- From: file:/Users/mariuspilgrim/Documents/AndroidGitHub/NavigationDrawer/app/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string-array name="image_changes_campus">
+        <item>department</item>
+        <item>welcome</item>
+        <item>library</item>
+        <item>fh</item>
+        <item>inside</item>
+    </string-array>
     <string-array name="menu_items_array">
         <item>Welcome</item>
         <item>The Department</item>
@@ -120,7 +127,6 @@
     <declare-styleable name="MenuGroup"><attr name="android:id"/><attr name="android:menuCategory"/><attr name="android:orderInCategory"/><attr name="android:checkableBehavior"/><attr name="android:visible"/><attr name="android:enabled"/></declare-styleable>
     <declare-styleable name="MenuItem"><attr name="android:id"/><attr name="android:menuCategory"/><attr name="android:orderInCategory"/><attr name="android:title"/><attr name="android:titleCondensed"/><attr name="android:icon"/><attr name="android:alphabeticShortcut"/><attr name="android:numericShortcut"/><attr name="android:checkable"/><attr name="android:checked"/><attr name="android:visible"/><attr name="android:enabled"/><attr name="android:onClick"/><attr name="showAsAction"><flag name="never" value="0"/><flag name="ifRoom" value="1"/><flag name="always" value="2"/><flag name="withText" value="4"/><flag name="collapseActionView" value="8"/></attr><attr format="reference" name="actionLayout"/><attr format="string" name="actionViewClass"/><attr format="string" name="actionProviderClass"/></declare-styleable>
     <declare-styleable name="MenuView"><attr name="android:itemTextAppearance"/><attr name="android:horizontalDivider"/><attr name="android:verticalDivider"/><attr name="android:headerBackground"/><attr name="android:itemBackground"/><attr name="android:windowAnimationStyle"/><attr name="android:itemIconDisabledAlpha"/><attr format="boolean" name="preserveIconSpacing"/></declare-styleable>
-    <declare-styleable name="MyGallery"><attr name="android:galleryItemBackground"/></declare-styleable>
     <declare-styleable name="PopupWindow"><attr format="boolean" name="overlapAnchor"/><attr name="android:popupBackground"/></declare-styleable>
     <declare-styleable name="PopupWindowBackgroundState"><attr format="boolean" name="state_above_anchor"/></declare-styleable>
     <declare-styleable name="SearchView"><attr format="reference" name="layout"/><attr format="boolean" name="iconifiedByDefault"/><attr name="android:maxWidth"/><attr format="string" name="queryHint"/><attr name="android:imeOptions"/><attr name="android:inputType"/><attr format="reference" name="closeIcon"/><attr format="reference" name="goIcon"/><attr format="reference" name="searchIcon"/><attr format="reference" name="voiceIcon"/><attr format="reference" name="commitIcon"/><attr format="reference" name="suggestionRowLayout"/><attr format="reference" name="queryBackground"/><attr format="reference" name="submitBackground"/><attr name="android:focusable"/></declare-styleable>
@@ -240,6 +246,7 @@
     <string name="app_not_available">Sorry, there\'s no web browser available</string>
     <string name="browser_default_address">https://www.google.com</string>
     <string name="button_backToSendMessage">Edit</string>
+    <string name="button_changePicture">Next image</string>
     <string name="button_send">Next</string>
     <string name="button_sendAsEmail">Send email</string>
     <string name="button_setDefaultText">Set default to Max Mustermann</string>
@@ -309,7 +316,7 @@
     <string name="news_fragment">News \n Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
     <string name="nextitem_fragment">Nextitem \n Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
     <string name="prospective_fragment">Prospective \n Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
-    <string name="research_fragment">Research \n Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
+    <string name="research_fragment">The area of Leonardo-Campus was initially used by the military. The Von-Einem Barracks (German: Von-Einem-Kaserne) were built between 1898 and 1901 and used until 1994, when the state of North Rhine-Westphalia bought the area in order to use it for Science and Research. The whole area has been rebuilt from 1999 to 2000 to the now present Leonardo-Campus. Moreover, buildings for a new art academy (German: Kunstakademie) were created. In 2009 the Faculty of Design of the University of Applied Sciences built their new buildings in a very modern style complementing the traditional look and atmosphere of the campus. Today a huge variety of research and educational institutions occupy Leonardo-Campus making it a true multidisciplinary research and higher education area.</string>
     <string name="result_email">Email address: </string>
     <string name="result_first_name">First name: </string>
     <string name="result_last_name">Last name: </string>

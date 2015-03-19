@@ -8,6 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+
+import java.util.Random;
 
 /**
  * Created by mariuspilgrim on 12/03/15.
@@ -28,9 +31,17 @@ public class CampusFragment extends Fragment {
         String menuItem = getResources().getStringArray(R.array.menu_items_array)[i];
         getActivity().setTitle(menuItem);
 
-        //Starting GalleryActivity.class
-        //Intent intent = new Intent(getActivity(), GalleryActivity.class);
-        //startActivity(intent);
+                Button button_changeCampusImage = (Button) rootView.findViewById(R.id.btn_changeImage);
+        button_changeCampusImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    changeCampusImage(rootView);//
+                } catch (NullPointerException ex) {
+                    messageBox("changeCampusImage, set to rootview?",ex.toString());
+                }
+            }
+        });
 
         /*
         Working code!!!
@@ -47,7 +58,26 @@ public class CampusFragment extends Fragment {
         });
         */
         return rootView;
+    }
 
+    public void changeCampusImage(View rootView) {
+        ImageView changeImage = (ImageView) rootView.findViewById(R.id.image_campus_change);
+        int randomNumber = randInt(0,4);
+        String changeImageString = getResources().getStringArray(R.array.image_changes_campus)[randomNumber];
+        changeImage.setImageResource(getResources().getIdentifier(changeImageString, "drawable", MainActivity.PACKAGE_NAME));
+    }
+
+    public static int randInt(int min, int max) {
+
+        // NOTE: Usually this should be a field rather than a method
+        // variable so that it is not re-seeded every call.
+        Random rand = new Random();
+
+        // nextInt is normally exclusive of the top value,
+        // so add 1 to make it inclusive
+        int randomNum = rand.nextInt((max - min) + 1) + min;
+
+        return randomNum;
     }
 
     /**

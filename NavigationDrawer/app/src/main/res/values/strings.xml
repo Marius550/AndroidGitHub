@@ -13,6 +13,14 @@
         <item>Copyright Page</item>
     </string-array>
 
+    <string-array name="image_changes_campus">
+        <item>department</item>
+        <item>welcome</item>
+        <item>library</item>
+        <item>fh</item>
+        <item>inside</item>
+    </string-array>
+
     <string name="menu_item_title_alternative">ERCIS Department</string>
 
     <string name="welcome_info">To contact ERCIS, please use the following form:</string>
@@ -33,6 +41,7 @@
     <string name="button_setDefaultText">Set default to Max Mustermann</string>
     <string name="button_send">Next</string>
     <string name="button_sendAsEmail">Send email</string>
+    <string name="button_changePicture">Next image</string>
     <string name="email_chooser">Send email ...</string>
     <string name="button_backToSendMessage">Edit</string>
     <string name="ContactFragmentActivity">Enter your message</string>
@@ -59,7 +68,7 @@
 
     <string name="affairs_fragment">Affairs \n Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
     <string name="prospective_fragment">Prospective \n Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
-    <string name="research_fragment">Research \n Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
+    <string name="research_fragment">The area of Leonardo-Campus was initially used by the military. The Von-Einem Barracks (German: Von-Einem-Kaserne) were built between 1898 and 1901 and used until 1994, when the state of North Rhine-Westphalia bought the area in order to use it for Science and Research. The whole area has been rebuilt from 1999 to 2000 to the now present Leonardo-Campus. Moreover, buildings for a new art academy (German: Kunstakademie) were created. In 2009 the Faculty of Design of the University of Applied Sciences built their new buildings in a very modern style complementing the traditional look and atmosphere of the campus. Today a huge variety of research and educational institutions occupy Leonardo-Campus making it a true multidisciplinary research and higher education area.</string>
     <string name="news_fragment">News \n Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
     <string name="events_fragment">Events \n Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
     <string name="contact_fragment">Contact \n Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
